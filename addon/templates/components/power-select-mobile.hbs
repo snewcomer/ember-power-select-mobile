@@ -1,0 +1,93 @@
+{{#if mobileFallback}}
+  {{#component powerSelectComponentName
+    ariaDescribedBy=ariaDescribedBy
+    ariaInvalid=ariaInvalid
+    ariaLabel=ariaLabel
+    ariaLabelledBy=ariaLabelledBy
+    options=options
+    selected=selected
+    onchange=onchange
+    onkeydown=onkeydown
+    onfocus=onfocus
+    onopen=(action "mobileOpen")
+    onclose=(if multiple (action "mobileMultipleClose") (action "mobileClose"))
+    search=search
+    disabled=disabled
+    placeholder=placeholder
+    searchEnabled=searchEnabled
+    searchPlaceholder=searchPlaceholder
+    searchField=searchField
+    matcher=matcher
+    loadingMessage=loadingMessage
+    noMatchesMessage=noMatchesMessage
+    searchMessage=searchMessage
+    triggerComponent=triggerComponent
+    selectedItemComponent=selectedItemComponent
+    afterOptionsComponent=afterOptionsComponent
+    beforeOptionsComponent=beforeOptionsComponent
+    optionsComponent=optionsComponent
+    renderInPlace=renderInPlace
+    closeOnSelect=closeOnSelect
+    allowClear=allowClear
+    verticalPosition=verticalPosition
+    horizontalPosition=horizontalPosition
+    class=class
+    triggerClass=(concat triggerClass "power-select-mobile__trigger")
+    dropdownClass=(concat dropdownClass "power-select-mobile__dropdown")
+    extra=extra
+    initiallyOpened=initiallyOpened
+    matchTriggerWidth=matchTriggerWidth
+    destination=destination
+    tabindex=tabindex
+    dir=dir
+    as |option term|
+  }}
+    {{yield option term}}
+  {{/component}}
+{{else}}
+  {{#component powerSelectComponentName
+    ariaDescribedBy=ariaDescribedBy
+    ariaInvalid=ariaInvalid
+    ariaLabel=ariaLabel
+    ariaLabelledBy=ariaLabelledBy
+    options=optionsArray
+    selected=selected
+    onchange=onchange
+    onkeydown=onkeydown
+    onfocus=onfocus
+    onopen=onopen
+    onclose=onclose
+    search=search
+    disabled=disabled
+    placeholder=placeholder
+    searchEnabled=searchEnabled
+    searchPlaceholder=searchPlaceholder
+    searchField=searchField
+    matcher=matcher
+    loadingMessage=loadingMessage
+    noMatchesMessage=noMatchesMessage
+    searchMessage=searchMessage
+    triggerComponent=triggerComponent
+    selectedItemComponent=selectedItemComponent
+    afterOptionsComponent=afterOptionsComponent
+    beforeOptionsComponent=beforeOptionsComponent
+    optionsComponent=optionsComponent
+    renderInPlace=renderInPlace
+    closeOnSelect=closeOnSelect
+    allowClear=allowClear
+    verticalPosition=verticalPosition
+    horizontalPosition=horizontalPosition
+    class=class
+    triggerClass=triggerClass
+    dropdownClass=dropdownClass
+    extra=extra
+    initiallyOpened=initiallyOpened
+    matchTriggerWidth=matchTriggerWidth
+    destination=destination
+    tabindex=tabindex
+    dir=dir
+    as |option term|
+  }}
+    {{yield option term}}
+  {{/component}}
+{{/if}}

@@ -1,0 +1,9 @@
+<h1>SCOTT</h1>
+
+{{#power-select-mobile renderInPlace=true navMobileComponent="nav-mobile-component" options=numbers mustFallback=mustFallback selected=number onchange=(action (mut number)) as |num|}}
+  {{num}}
+{{/power-select-mobile}}
+
+{{#power-select-mobile multiple=true navMobileComponent="nav-mobile-component" renderInPlace=true options=numbers mustFallback=mustFallback selected=number onchange=(action (mut number)) as |num|}}
+  {{num}}
+{{/power-select-mobile}}
