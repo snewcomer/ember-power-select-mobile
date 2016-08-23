@@ -1,8 +1,30 @@
 @import 'ember-power-select';
 
+$mobileHeaderHeight: 60px;
+$headerChildHeight: 36px;
+$headerChildMargin: ($mobileHeaderHeight - $headerChildHeight) / 2;
+$borderRadius: 2px;
+$dark: #293541;
+$darkGray: #303E4C;
+$light: #F5F5F5;
+$lightBlue: #6abff0;
+$menuColor: $darkGray;
+$activeColor: $lightBlue;
+
 @mixin smoothScrolling() {
   -webkit-overflow-scrolling: touch; // DO NOT REMOVE
   overflow: auto;
+}
+
+@mixin nav-box-shadow($blurRadius: 10px, $color: $dark) {
+  -webkit-box-shadow: 0 0 $blurRadius $color;
+  -moz-box-shadow: 0 0 $blurRadius $color;
+  box-shadow: 0 0 $blurRadius $color;
+}
+
+@mixin headerColors() {
+  background: $menuColor;
+  color: $light;
 }
 
 .power-select-mobile--open {
@@ -13,8 +35,10 @@
   left: 0;
   display: flex;
   flex-direction: column;
+  z-index: 100;
   .power-select-mobile__trigger {
     flex: none;
+    // apply only directly to div after .power-select-mobile__trigger
     & + div {
       display: flex;
       flex: auto;
@@ -38,9 +62,29 @@
 }
 
 .ps__head {
-  background: red;
+  height: $mobileHeaderHeight;
+  @include nav-box-shadow;
+  @include headerColors;
   display: flex;
+  button.ps__head--action {
+    background: $activeColor;
+  }
   .ps__head__title {
+    font-size: 1.4rem;
+    text-align: center;
     flex: auto;
   }
+  .ps__head__btn {
+    height: $headerChildHeight;
+    margin: $headerChildMargin;
+    color: $light;
+    font-size: 14px;
+  }
+  .mobile-btn {
+    border: none;
+    background: $dark;
+    padding: 0.5em 0.8em;
+    border-radius: $borderRadius;
+  }
 }
+

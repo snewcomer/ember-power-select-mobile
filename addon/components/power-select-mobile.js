@@ -36,19 +36,23 @@ export default Ember.Component.extend({
 
   actions: {
     mobileOpen() {
-      this.$('.ember-basic-dropdown').addClass('power-select-mobile--open');
+      this.$('.wrapper').addClass('power-select-mobile--open');
+      this.toggleProperty('componentOpen');
     },
     mobileClose() {
-      this.$('.ember-basic-dropdown').removeClass('power-select-mobile--open');
+      this.$('.wrapper').removeClass('power-select-mobile--open');
+      this.toggleProperty('componentOpen');
     },
     mobileMultipleClose() {
       return false;
     },
     done() {
-
+      this.$('.wrapper').removeClass('power-select-mobile--open');
+      this.set('componentOpen', false);
     },
     cancel() {
-
+      this.$('.wrapper').removeClass('power-select-mobile--open');
+      this.set('componentOpen', false);
     }
   }
 });

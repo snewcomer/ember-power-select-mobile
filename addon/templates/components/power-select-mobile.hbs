@@ -1,50 +1,73 @@
 {{#if mobileFallback}}
-  {{#component powerSelectComponentName
-    ariaDescribedBy=ariaDescribedBy
-    ariaInvalid=ariaInvalid
-    ariaLabel=ariaLabel
-    ariaLabelledBy=ariaLabelledBy
-    options=options
-    selected=selected
-    onchange=onchange
-    onkeydown=onkeydown
-    onfocus=onfocus
-    onopen=(action "mobileOpen")
-    onclose=(if multiple (action "mobileMultipleClose") (action "mobileClose"))
-    search=search
-    disabled=disabled
-    placeholder=placeholder
-    searchEnabled=searchEnabled
-    searchPlaceholder=searchPlaceholder
-    searchField=searchField
-    matcher=matcher
-    loadingMessage=loadingMessage
-    noMatchesMessage=noMatchesMessage
-    searchMessage=searchMessage
-    triggerComponent=triggerComponent
-    selectedItemComponent=selectedItemComponent
-    afterOptionsComponent=afterOptionsComponent
-    beforeOptionsComponent=beforeOptionsComponent
-    optionsComponent=optionsComponent
-    renderInPlace=renderInPlace
-    closeOnSelect=closeOnSelect
-    allowClear=allowClear
-    verticalPosition=verticalPosition
-    horizontalPosition=horizontalPosition
-    class=class
-    triggerClass=(concat triggerClass "power-select-mobile__trigger")
-    dropdownClass=(concat dropdownClass "power-select-mobile__dropdown")
-    extra=extra
-    initiallyOpened=initiallyOpened
-    matchTriggerWidth=matchTriggerWidth
-    destination=destination
-    tabindex=tabindex
-    dir=dir
-    as |option term|
-  }}
-    {{yield option term}}
-  {{/component}}
+  <!-- wrapper class to encapsulate nav, trigger, and dropdown components -->
+  <div class="wrapper">
+    <!-- nav -->
+    {{#if navMobileComponent}}
+      {{#if componentOpen}}
+        <!-- user provided -->
+        {{component navMobileComponent cancel=(action "cancel") done=(action "done")}}
+      {{/if}}
+    {{else}}
+      {{#if componentOpen}}
+        <!-- default provided -->
+        <header class="ps-mobile-header">
+          <div class="ps__head">
+            <button class="ps__head__btn mobile-btn" {{action "cancel"}}>Cancel</button>
+            <h1 class="ps__head__title t-mobile-filter-title">Power select mobile</h1>
+            <button class="ps__head__btn mobile-btn ps__head--action" {{action "done"}}>Done</button>
+          </div>
+        </header>
+      {{/if}}
+    {{/if}}
+    <!-- trigger and dropdown -->
+    {{#component powerSelectComponentName
+      ariaDescribedBy=ariaDescribedBy
+      ariaInvalid=ariaInvalid
+      ariaLabel=ariaLabel
+      ariaLabelledBy=ariaLabelledBy
+      options=options
+      selected=selected
+      onchange=onchange
+      onkeydown=onkeydown
+      onfocus=onfocus
+      onopen=(action "mobileOpen")
+      onclose=(if multiple (action "mobileMultipleClose") (action "mobileClose"))
+      search=search
+      disabled=disabled
+      placeholder=placeholder
+      searchEnabled=searchEnabled
+      searchPlaceholder=searchPlaceholder
+      searchField=searchField
+      matcher=matcher
+      loadingMessage=loadingMessage
+      noMatchesMessage=noMatchesMessage
+      searchMessage=searchMessage
+      triggerComponent=triggerComponent
+      selectedItemComponent=selectedItemComponent
+      afterOptionsComponent=afterOptionsComponent
+      beforeOptionsComponent=beforeOptionsComponent
+      optionsComponent=optionsComponent
+      renderInPlace=renderInPlace
+      closeOnSelect=closeOnSelect
+      allowClear=allowClear
+      verticalPosition=verticalPosition
+      horizontalPosition=horizontalPosition
+      class=class
+      triggerClass=(concat triggerClass "power-select-mobile__trigger")
+      dropdownClass=(concat dropdownClass "power-select-mobile__dropdown")
+      extra=extra
+      initiallyOpened=initiallyOpened
+      matchTriggerWidth=matchTriggerWidth
+      destination=destination
+      tabindex=tabindex
+      dir=dir
+      as |option term|
+    }}
+      {{yield option term}}
+    {{/component}}
+  </div>
 {{else}}
+  <!-- else render normal ember-power-select component -->
   {{#component powerSelectComponentName
     ariaDescribedBy=ariaDescribedBy
     ariaInvalid=ariaInvalid
