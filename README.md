@@ -24,3 +24,12 @@ This README outlines the details of collaborating on this Ember addon.
 * `ember build`
 
 For more information on using ember-cli, visit [http://ember-cli.com/](http://ember-cli.com/).
+
+## API
+
+* title
+* cancel action title, e.g. "Cancel" or "cancel.button" for i18n strings
+* done action title, e.g. "Done" or "done.button" for i18n strings
+* navMobileComponent - replace default component with a __ background.  Take up more space than default 
+
+For more information on using ember-cli, visit [http://ember-cli.com/](http://ember-cli.com/).
