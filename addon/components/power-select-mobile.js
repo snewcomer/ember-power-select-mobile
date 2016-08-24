@@ -36,21 +36,18 @@ export default Ember.Component.extend({
 
   actions: {
     mobileOpen() {
-      // if already open, then dont do below
+      // if already open, then dont style trigger/dropdown component nor show the nav
       if (!this.$('.wrapper').hasClass('power-select-mobile--open')) {
         this.$('.wrapper').addClass('power-select-mobile--open');
         this.toggleProperty('componentOpen');
       }
     },
     done() {
+      // remove styles that style the trigger and dropdown ps components
       this.$('.wrapper').removeClass('power-select-mobile--open');
       // remove the nav
       this.set('componentOpen', false);
     },
-    cancel() {
-      this.$('.wrapper').removeClass('power-select-mobile--open');
-      this.set('componentOpen', false);
-    }
   }
 });
 

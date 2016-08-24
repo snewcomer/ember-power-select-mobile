@@ -5,14 +5,13 @@
     {{#if navMobileComponent}}
       {{#if componentOpen}}
         <!-- user provided -->
-        {{component navMobileComponent cancel=(action "cancel") done=(action "done")}}
+        {{component navMobileComponent done=(action "done")}}
       {{/if}}
     {{else}}
       {{#if componentOpen}}
         <!-- default provided -->
         <header class="ps-mobile-header">
           <div class="ps__head" data-test-id="custom-nav">
-            <button class="ps__head__btn mobile-btn" {{action "cancel"}} data-test-id="custom-nav--cancel">Cancel</button>
             <h1 class="ps__head__title t-mobile-filter-title" data-test-id="custom-nav--title">Select</h1>
             <button class="ps__head__btn mobile-btn ps__head--action" {{action "done"}} data-test-id="custom-nav--done">Done</button>
           </div>

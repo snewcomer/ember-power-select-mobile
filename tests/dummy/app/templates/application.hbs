@@ -17,10 +17,23 @@
 {{#power-select-mobile 
   multiple=true 
   renderInPlace=true 
-  options=multi_numbers 
+  options=numbers 
   mustFallback="mobile" 
-  selected=number 
+  selected=numbero
   className="t-multi"
+  mobileTagName="div"
+  onchange=(action (mut numbero)) as |num|}}
+  {{num}}
+{{/power-select-mobile}}
+
+<!-- single / nav component provided with custom close action -->
+{{#power-select-mobile 
+  renderInPlace=true 
+  navMobileComponent="nav-mobile" 
+  options=numbers 
+  mustFallback="mobile"
+  selected=number 
+  className="t-single-custom-done"
   mobileTagName="div"
   onchange=(action (mut number)) as |num|}}
   {{num}}
