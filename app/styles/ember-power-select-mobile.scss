@@ -1,5 +1,6 @@
 @import 'ember-power-select';
 
+//colors - need to make psmobile specific so doesnt clash with others
 $mobileHeaderHeight: 60px;
 $headerChildHeight: 36px;
 $headerChildMargin: ($mobileHeaderHeight - $headerChildHeight) / 2;
@@ -36,6 +37,8 @@ $activeColor: $lightBlue;
   display: flex;
   flex-direction: column;
   z-index: 100;
+  // ps will close and ensures consistent ui while component is open
+  background: $light;
   .power-select-mobile__trigger {
     flex: none;
     // apply only directly to div after .power-select-mobile__trigger
@@ -61,6 +64,7 @@ $activeColor: $lightBlue;
   }
 }
 
+// navigation component
 .ps__head {
   height: $mobileHeaderHeight;
   @include nav-box-shadow;

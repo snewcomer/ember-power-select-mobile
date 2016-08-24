@@ -1,5 +1,43 @@
 import Ember from 'ember';
 
+const multi_numbers = [
+  'one',
+  'two',
+  'three',
+  'four',
+  'five',
+  'six',
+  'seven',
+  'eight',
+  'three',
+  'three',
+  'xfour',
+  'xfour',
+  'dfour',
+  'dive',
+  'dix',
+  'deven',
+  'dight',
+  'dour',
+  'dive',
+  'dive',
+  'qive',
+  'qix',
+  'qeven',
+  'sight',
+  'qour',
+  'qive',
+  'qive',
+  'qix',
+  'qeven',
+  'qight',
+  'qour',
+  'qive',
+  'qix',
+  'qeven',
+  'qight',
+];
+
 const numbers = [
   'one',
   'two',
@@ -72,6 +110,7 @@ const users = [
 
 export default Ember.Controller.extend({
   numbers,
+  multi_numbers,
   users,
   nestedNumbers,
   mustFallback: false,

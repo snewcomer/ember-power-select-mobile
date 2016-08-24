@@ -5,8 +5,10 @@
   renderInPlace=true 
   navMobileComponent="nav-mobile" 
   options=numbers 
-  mustFallback=mustFallback 
+  mustFallback="mobile"
   selected=number 
+  className="t-single"
+  mobileTagName="div"
   onchange=(action (mut number)) as |num|}}
   {{num}}
 {{/power-select-mobile}}
@@ -15,9 +17,11 @@
 {{#power-select-mobile 
   multiple=true 
   renderInPlace=true 
-  options=numbers 
-  mustFallback=mustFallback 
+  options=multi_numbers 
+  mustFallback="mobile" 
   selected=number 
+  className="t-multi"
+  mobileTagName="div"
   onchange=(action (mut number)) as |num|}}
   {{num}}
 {{/power-select-mobile}}

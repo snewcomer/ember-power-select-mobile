@@ -17,6 +17,7 @@
     "find",
     "findWithAssert",
     "wait",
+    "selectChoose",
     "DS",
     "andThen",
     "currentURL",
