@@ -51,15 +51,9 @@ $activeColor: $lightBlue;
     }
     .power-select-mobile__trigger {
       flex: none;
-      // apply only directly to div after .power-select-mobile__trigger
-      // & + div {
-      //   display: flex;
-      //   // flex: auto;
-      //   flex-direction: column;
-      // }
       & + div {
         flex: auto;
-        overflow: auto;
+        overflow-y: auto;
       }
     }
     .power-select-mobile__dropdown {
