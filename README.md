@@ -27,9 +27,19 @@ For more information on using ember-cli, visit [http://ember-cli.com/](http://em
 
 ## API
 
-* title
-* cancel action title, e.g. "Cancel" or "cancel.button" for i18n strings
+* nav title - renders in middle of provided nav component
+* nav button text - can be a string or i18n translation string 
+* className - useful for targeting in tests
+* options - array of JS primitives or array of objects
+* selected - JS primitive or object that is selected.  May delegate to action if needed.
+* mobileTagName - "div" or whatever wrapper element you want around the power select component.  This is needed for className to work properly
+* searchEnabled - ...
 * done action title, e.g. "Done" or "done.button" for i18n strings
-* navMobileComponent - replace default component with a __ background.  Take up more space than default 
+* navMobileComponent - replace default component with a dark blue background. 
+
+
+## Notes
+* For examples, see `tests/` folder for dummy app or applicable tests
+* renderInPlace default is set to true so options are not attached to the root of the body
 
 For more information on using ember-cli, visit [http://ember-cli.com/](http://ember-cli.com/).

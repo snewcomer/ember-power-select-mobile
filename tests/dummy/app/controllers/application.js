@@ -80,6 +80,9 @@ export default Ember.Controller.extend({
   actions: {
     toggleFallback() {
       this.toggleProperty('mustFallback');
+    },
+    selectMe() {
+      //
     }
   }
 });

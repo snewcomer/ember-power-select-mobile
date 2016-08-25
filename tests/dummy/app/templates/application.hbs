@@ -1,5 +1,6 @@
-<h1>SCOTT</h1>
+<h1>Big Sky Technologies - San Diego, CA</h1>
 
+<h3> Single </h3>
 <!-- single / nav component provided -->
 {{#power-select-mobile 
   renderInPlace=true 
@@ -13,6 +14,7 @@
   {{num}}
 {{/power-select-mobile}}
 
+<h3> Multiple </h3>
 <!-- multiple / no nav component provided -->
 {{#power-select-mobile 
   multiple=true 
@@ -26,15 +28,14 @@
   {{num}}
 {{/power-select-mobile}}
 
+<h3> Single with custom selected </h3>
 <!-- single / nav component provided with custom close action -->
 {{#power-select-mobile 
-  renderInPlace=true 
-  navMobileComponent="nav-mobile" 
   options=numbers 
   mustFallback="mobile"
   selected=number 
   className="t-single-custom-done"
   mobileTagName="div"
-  onchange=(action (mut number)) as |num|}}
+  onchange=(action "selectMe") as |num|}}
   {{num}}
 {{/power-select-mobile}}

@@ -5,17 +5,19 @@
     {{#if navMobileComponent}}
       {{#if componentOpen}}
         <!-- user provided -->
-        {{component navMobileComponent done=(action "done")}}
+        {{component navMobileComponent done=(action "done") class="ps-mobile-nav-wrapper"}}
       {{/if}}
     {{else}}
       {{#if componentOpen}}
         <!-- default provided -->
-        <header class="ps-mobile-header">
-          <div class="ps__head" data-test-id="custom-nav">
-            <h1 class="ps__head__title t-mobile-filter-title" data-test-id="custom-nav--title">Select</h1>
-            <button class="ps__head__btn mobile-btn ps__head--action" {{action "done"}} data-test-id="custom-nav--done">Done</button>
-          </div>
-        </header>
+        <div class="ps-mobile-nav-wrapper">
+          <header class="ps-mobile-header">
+            <div class="ps__head" data-test-id="custom-nav">
+              <h1 class="ps__head__title t-mobile-filter-title" data-test-id="custom-nav--title">Selectas;</h1>
+              <button class="ps__head__btn mobile-btn ps__head--action" {{action "done"}} data-test-id="custom-nav--done">Done</button>
+            </div>
+          </header>
+        </div>
       {{/if}}
     {{/if}}
     <!-- trigger and dropdown -->
@@ -46,12 +48,12 @@
       afterOptionsComponent=afterOptionsComponent
       beforeOptionsComponent=beforeOptionsComponent
       optionsComponent=optionsComponent
-      renderInPlace=renderInPlace
+      renderInPlace=true
       closeOnSelect=(if multiple false)
       allowClear=allowClear
       verticalPosition=verticalPosition
       horizontalPosition=horizontalPosition
-      class=className
+      class=(concat className " ps-mobile-dropdown-wrapper")
       tagName=mobileTagName
       triggerClass=(concat triggerClass "power-select-mobile__trigger")
       dropdownClass=(concat dropdownClass "power-select-mobile__dropdown")
@@ -95,7 +97,7 @@
     afterOptionsComponent=afterOptionsComponent
     beforeOptionsComponent=beforeOptionsComponent
     optionsComponent=optionsComponent
-    renderInPlace=renderInPlace
+    renderInPlace=true
     closeOnSelect=closeOnSelect
     allowClear=allowClear
     verticalPosition=verticalPosition

@@ -39,27 +39,42 @@ $activeColor: $lightBlue;
   z-index: 100;
   // ps will close and ensures consistent ui while component is open
   background: $light;
-  .power-select-mobile__trigger {
+  .ps-mobile-nav-wrapper {
     flex: none;
-    // apply only directly to div after .power-select-mobile__trigger
-    & + div {
-      display: flex;
-      flex: auto;
-      flex-direction: column;
-    }
   }
-  .power-select-mobile__dropdown {
+  .ps-mobile-dropdown-wrapper {
     flex: auto;
-    position: relative; //override absolute position from ember-basic-dropdown-content
-    display: flex;
-    flex-direction: column;
-    .ember-power-select-search {
-      flex: none;
+    .ember-basic-dropdown {
+      display: flex;
+      flex-direction: column;
+      height: calc(100vh - #{$mobileHeaderHeight});
     }
-    .ember-power-select-options[role="listbox"] {
-      flex: auto;
-      max-height: none;
-      @include smoothScrolling();
+    .power-select-mobile__trigger {
+      flex: none;
+      // apply only directly to div after .power-select-mobile__trigger
+      // & + div {
+      //   display: flex;
+      //   // flex: auto;
+      //   flex-direction: column;
+      // }
+      & + div {
+        flex: auto;
+        overflow: auto;
+      }
+    }
+    .power-select-mobile__dropdown {
+      // flex: auto;
+      position: relative; //override absolute position from ember-basic-dropdown-content
+      // display: flex;
+      // flex-direction: column;
+      .ember-power-select-search {
+        // flex: none;
+      }
+      .ember-power-select-options[role="listbox"] {
+        // flex: auto;
+        max-height: none;
+        // @include smoothScrolling();
+      }
     }
   }
 }
@@ -79,6 +94,7 @@ $activeColor: $lightBlue;
     flex: auto;
   }
   .ps__head__btn {
+    flex: none;
     height: $headerChildHeight;
     margin: $headerChildMargin;
     color: $light;
