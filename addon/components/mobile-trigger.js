@@ -4,7 +4,6 @@ import { scheduleOnce } from 'ember-runloop';
 import isIos from '../utils/is-ios';
 
 export default Ember.Component.extend({
-  tagName: '',
   layout,
   autofocus: true,
 
@@ -44,7 +43,7 @@ export default Ember.Component.extend({
       }
     }
   },
-  
+
   // Methods
   focusInput() {
     this.input = Ember.$('.ember-power-select-search-input');

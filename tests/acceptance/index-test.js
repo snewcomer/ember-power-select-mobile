@@ -2,7 +2,10 @@ import { test } from 'qunit';
 import moduleForAcceptance from '../../tests/helpers/module-for-acceptance';
 import { nativeMouseDown } from '../../tests/helpers/ember-power-select';
 
-moduleForAcceptance('Acceptance | index');
+const singleLabelText = "Single";
+const singleButtonText = "Done1";
+
+moduleForAcceptance('amk Acceptance | index');
 
 test('visiting /index and power-select single with custom nav component works as expected', function(assert) {
   visit('/');
@@ -14,8 +17,8 @@ test('visiting /index and power-select single with custom nav component works as
     nativeMouseDown('.t-single .ember-power-select-trigger');
     andThen(() => {
       assert.equal(find('[data-test-id=custom-nav]').length, 1);
-      assert.equal(find('[data-test-id=custom-nav--done]').text(), 'Done');
-      assert.equal(find('[data-test-id=custom-nav--title]').text(), 'Select');
+      assert.equal(find('[data-test-id=custom-nav--title]').text(), singleLabelText);
+      assert.equal(find('[data-test-id=custom-nav--done]').text(), singleButtonText);
     });
     selectChoose('.t-single', 'one');
     andThen(function() {
@@ -36,8 +39,8 @@ test('visiting /index and power-select multiple with custom nav component works 
     nativeMouseDown('.t-multi .ember-power-select-trigger');
     andThen(() => {
       assert.equal(find('[data-test-id=custom-nav]').length, 1);
-      assert.equal(find('[data-test-id=custom-nav--done]').text(), 'Done');
-      assert.equal(find('[data-test-id=custom-nav--title]').text(), 'Select');
+      assert.equal(find('[data-test-id=custom-nav--title]').text(), singleLabelText);
+      assert.equal(find('[data-test-id=custom-nav--done]').text(), singleButtonText);
     });
     selectChoose('.t-multi', 'one');
     andThen(function() {
@@ -48,7 +51,7 @@ test('visiting /index and power-select multiple with custom nav component works 
   });
 });
 
-// focus out triggers power select to close 
+// focus out triggers power select to close
 
 test('power-select single closes when hit done', function(assert) {
   visit('/');
@@ -60,8 +63,8 @@ test('power-select single closes when hit done', function(assert) {
     nativeMouseDown('.t-single .ember-power-select-trigger');
     andThen(() => {
       assert.equal(find('[data-test-id=custom-nav]').length, 1);
-      assert.equal(find('[data-test-id=custom-nav--done]').text(), 'Done');
-      assert.equal(find('[data-test-id=custom-nav--title]').text(), 'Select');
+      assert.equal(find('[data-test-id=custom-nav--title]').text(), singleLabelText);
+      assert.equal(find('[data-test-id=custom-nav--done]').text(), singleButtonText);
     });
     selectChoose('.t-single', 'one');
     andThen(function() {
@@ -86,8 +89,8 @@ test('power-select multi closes when hit done', function(assert) {
     nativeMouseDown('.t-multi .ember-power-select-trigger');
     andThen(() => {
       assert.equal(find('[data-test-id=custom-nav]').length, 1);
-      assert.equal(find('[data-test-id=custom-nav--done]').text(), 'Done');
-      assert.equal(find('[data-test-id=custom-nav--title]').text(), 'Select');
+      assert.equal(find('[data-test-id=custom-nav--title]').text(), singleLabelText);
+      assert.equal(find('[data-test-id=custom-nav--done]').text(), singleButtonText);
     });
     selectChoose('.t-multi', 'one');
     andThen(function() {

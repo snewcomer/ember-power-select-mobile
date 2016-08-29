@@ -28,67 +28,25 @@ $activeColor: $lightBlue;
   color: $light;
 }
 
-.power-select-mobile--open {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  z-index: 100;
-  // ps will close and ensures consistent ui while component is open
-  background: $light;
-  .ps-mobile-nav-wrapper {
-    flex: none;
-  }
-  .ps-mobile-dropdown-wrapper {
-    flex: auto;
-    .ember-basic-dropdown {
-      display: flex;
-      flex-direction: column;
-      height: calc(100vh - #{$mobileHeaderHeight});
-    }
-    .power-select-mobile__trigger {
-      flex: none;
-      & + div {
-        flex: auto;
-        overflow-y: auto;
-      }
-    }
-    .power-select-mobile__dropdown {
-      // flex: auto;
-      position: relative; //override absolute position from ember-basic-dropdown-content
-      // display: flex;
-      // flex-direction: column;
-      .ember-power-select-search {
-        // flex: none;
-      }
-      .ember-power-select-options[role="listbox"] {
-        // flex: auto;
-        max-height: none;
-        // @include smoothScrolling();
-      }
-    }
-  }
-}
-
 // navigation component
 .ps__head {
   height: $mobileHeaderHeight;
   @include nav-box-shadow;
   @include headerColors;
-  display: flex;
   button.ps__head--action {
     background: $activeColor;
   }
   .ps__head__title {
     font-size: 1.4rem;
     text-align: center;
-    flex: auto;
+    line-height: $mobileHeaderHeight;
+    margin: 0;
   }
   .ps__head__btn {
-    flex: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
     height: $headerChildHeight;
     margin: $headerChildMargin;
     color: $light;
@@ -102,3 +60,58 @@ $activeColor: $lightBlue;
   }
 }
 
+.power-select-mobile--open {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  // ps will close and ensures consistent ui while component is open
+  background: $light;
+  .ps-mobile-nav-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 10000;
+  }
+  .ps-mobile-dropdown-wrapper {
+    position: absolute;
+    top: $mobileHeaderHeight;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+    .ember-basic-dropdown {
+      // display: flex;
+      // flex-direction: column;
+      // height: calc(100vh - #{$mobileHeaderHeight});
+    }
+    .power-select-mobile__trigger {
+      border-width: 0 0 1px;
+      border-radius: 0;
+      // display: none;
+      // flex: none;
+      // & + div {
+      //   flex: auto;
+      //   overflow-y: auto;
+      // }
+    }
+    .power-select-mobile__dropdown {
+      border: none;
+      // flex: auto;
+      position: relative; //override absolute position from ember-basic-dropdown-content
+      // display: flex;
+      // flex-direction: column;
+      .ember-power-select-search {
+        // flex: none;
+      }
+      .ember-power-select-options[role="listbox"] {
+        // flex: auto;
+        max-height: none;
+        @include smoothScrolling();
+      }
+    }
+  }
+}

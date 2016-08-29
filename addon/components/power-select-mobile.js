@@ -35,6 +35,8 @@ export default Ember.Component.extend({
   }),
 
   actions: {
+    mobileOnFocus(){
+    },
     mobileOpen() {
       // if already open, then dont style trigger/dropdown component nor show the nav
       if (!this.$('.wrapper').hasClass('power-select-mobile--open')) {
@@ -50,4 +52,3 @@ export default Ember.Component.extend({
     },
   }
 });
-

@@ -1,28 +1,67 @@
 <h1>Big Sky Technologies - San Diego, CA</h1>
 
-<h3> Single </h3>
+<h3>Single</h3>
 <!-- single / nav component provided -->
-{{#power-select-mobile 
-  renderInPlace=true 
-  options=numbers 
+{{#power-select-mobile
+  labelText="Single"
+  buttonText="Done1"
+  renderInPlace=true
+  options=numbers
   mustFallback="mobile"
-  selected=number 
+  selected=number
   className="t-single"
   mobileTagName="div"
-  onchange=(action (mut number)) as |num|}}
+  searchEnabled=false
+  onchange=(action (mut number)) as |num|
+}}
   {{num}}
 {{/power-select-mobile}}
 
-<h3> Multiple </h3>
+<h3>Single with Search</h3>
+<!-- single / nav component provided -->
+{{#power-select-mobile
+  labelText="Single"
+  buttonText="Done1"
+  renderInPlace=true
+  options=numbers
+  mustFallback="mobile"
+  selected=number2
+  className="t-single-search"
+  mobileTagName="div"
+  onchange=(action (mut number2)) as |num|}}
+  {{num}}
+{{/power-select-mobile}}
+
+<h3>Multiple</h3>
 <!-- multiple / no nav component provided -->
-{{#power-select-mobile 
-  multiple=true 
-  renderInPlace=true 
-  options=numbers 
-  mustFallback="mobile" 
+{{#power-select-mobile
+  labelText="Single"
+  buttonText="Done1"
+  multiple=true
+  renderInPlace=true
+  options=numbers
+  mustFallback="mobile"
   selected=numbero
   className="t-multi"
   mobileTagName="div"
+  searchEnabled=false
   onchange=(action (mut numbero)) as |num|}}
+  {{num}}
+{{/power-select-mobile}}
+
+
+<h3>Multiple with Search</h3>
+<!-- multiple / no nav component provided -->
+{{#power-select-mobile
+  labelText="Single"
+  buttonText="Done1"
+  multiple=true
+  renderInPlace=true
+  options=numbers
+  mustFallback="mobile"
+  selected=numbero2
+  className="t-multi-search"
+  mobileTagName="div"
+  onchange=(action (mut numbero2)) as |num|}}
   {{num}}
 {{/power-select-mobile}}
