@@ -2,6 +2,9 @@ import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 import { clickTrigger, nativeMouseUp } from '../../helpers/ember-power-select';
 
+const singleLabelText = "Single";
+const singleButtonText = "Done1";
+
 moduleForComponent('power-select-mobile', 'Integration | Component | power select mobile', {
   integration: true
 });
@@ -10,12 +13,14 @@ test('it renders the single select power-select component with custom nav', func
   this.numbers = ['one', 'two', 'three'];
   this.number = 'one';
   this.render(hbs`
-    {{#power-select-mobile 
-      renderInPlace=true 
-      navMobileComponent="nav-mobile" 
-      options=numbers 
+    {{#power-select-mobile
+      labelText="${singleLabelText}"
+      buttonText="${singleButtonText}"
+      renderInPlace=true
+      navMobileComponent="nav-mobile"
+      options=numbers
       mustFallback="mobile"
-      selected=number 
+      selected=number
       className="t-single"
       mobileTagName="div"
       onchange=(action (mut number)) as |num|}}
@@ -26,8 +31,8 @@ test('it renders the single select power-select component with custom nav', func
   clickTrigger();
   assert.equal(this.$('.ember-power-select-option').length, 3);
   assert.equal(this.$('[data-test-id=custom-nav]').length, 1);
-  assert.equal(this.$('[data-test-id=custom-nav--done]').text(), 'Done');
-  assert.equal(this.$('[data-test-id=custom-nav--title]').text(), 'Select');
+  assert.equal(this.$('[data-test-id=custom-nav--done]').text(), singleButtonText);
+  assert.equal(this.$('[data-test-id=custom-nav--title]').text(), singleLabelText);
   nativeMouseUp('.ember-power-select-option:eq(1)');
   assert.equal(this.$('.t-single .ember-power-select-trigger').text().trim(), 'two', 'Value has been selected');
   assert.equal(this.$('.ember-power-select-options').length, 0, 'Select closed');
@@ -39,12 +44,14 @@ test('can click done to close custom nav', function(assert) {
   this.numbers = ['one', 'two', 'three'];
   this.number = 'one';
   this.render(hbs`
-    {{#power-select-mobile 
-      renderInPlace=true 
-      navMobileComponent="nav-mobile" 
-      options=numbers 
+    {{#power-select-mobile
+      labelText="${singleLabelText}"
+      buttonText="${singleButtonText}"
+      renderInPlace=true
+      navMobileComponent="nav-mobile"
+      options=numbers
       mustFallback="mobile"
-      selected=number 
+      selected=number
       className="t-single"
       mobileTagName="div"
       onchange=(action (mut number)) as |num|}}
@@ -63,11 +70,13 @@ test('can click done to close normal nav and close power select after selecting 
   this.numbers = ['one', 'two', 'three'];
   this.number = 'one';
   this.render(hbs`
-    {{#power-select-mobile 
-      renderInPlace=true 
-      options=numbers 
+    {{#power-select-mobile
+      labelText="${singleLabelText}"
+      buttonText="${singleButtonText}"
+      renderInPlace=true
+      options=numbers
       mustFallback="mobile"
-      selected=number 
+      selected=number
       className="t-single"
       mobileTagName="div"
       onchange=(action (mut number)) as |num|}}
@@ -89,11 +98,13 @@ test('can click done to close normal nav and close power select when not selecti
   this.numbers = ['one', 'two', 'three'];
   this.number = 'one';
   this.render(hbs`
-    {{#power-select-mobile 
-      renderInPlace=true 
-      options=numbers 
+    {{#power-select-mobile
+      labelText="${singleLabelText}"
+      buttonText="${singleButtonText}"
+      renderInPlace=true
+      options=numbers
       mustFallback="mobile"
-      selected=number 
+      selected=number
       className="t-single"
       mobileTagName="div"
       onchange=(action (mut number)) as |num|}}
@@ -117,13 +128,15 @@ test('it renders the multiple select power-select component with custom nav', fu
   this.numbers = ['one', 'two', 'three'];
   this.number = ['one'];
   this.render(hbs`
-    {{#power-select-mobile 
+    {{#power-select-mobile
       multiple=true
-      renderInPlace=true 
-      navMobileComponent="nav-mobile" 
-      options=numbers 
+      labelText="${singleLabelText}"
+      buttonText="${singleButtonText}"
+      renderInPlace=true
+      navMobileComponent="nav-mobile"
+      options=numbers
       mustFallback="mobile"
-      selected=number 
+      selected=number
       className="t-multiple"
       mobileTagName="div"
       onchange=(action (mut number)) as |num|}}
@@ -136,29 +149,31 @@ test('it renders the multiple select power-select component with custom nav', fu
   assert.equal(this.$('.ember-power-select-option').length, 3);
   assert.equal(this.$('.t-multiple .ember-power-select-trigger').text().trim().replace(/[\s\n\W]+/g, ''), 'one', 'Values has been selected');
   assert.equal(this.$('[data-test-id=custom-nav]').length, 1);
-  assert.equal(this.$('[data-test-id=custom-nav--done]').text(), 'Done');
-  assert.equal(this.$('[data-test-id=custom-nav--title]').text(), 'Select');
+  assert.equal(this.$('[data-test-id=custom-nav--done]').text(), singleButtonText);
+  assert.equal(this.$('[data-test-id=custom-nav--title]').text(), singleLabelText);
   nativeMouseUp('.ember-power-select-option:eq(1)');
   assert.equal(this.$('.power-select-mobile__dropdown').length, 1, 'Dropdown still present after selection');
   assert.equal(this.$('.ember-power-select-option').length, 3);
   assert.equal(this.$('.t-multiple .ember-power-select-trigger').text().trim().replace(/[\s\n\W]+/g, ''), 'onetwo', 'Values has been selected');
   assert.equal(this.$('[data-test-id=custom-nav]').length, 1);
   assert.equal(this.$('[data-test-id=custom-nav]').length, 1);
-  assert.equal(this.$('[data-test-id=custom-nav--done]').text(), 'Done');
-  assert.equal(this.$('[data-test-id=custom-nav--title]').text(), 'Select');
+  assert.equal(this.$('[data-test-id=custom-nav--done]').text(), singleButtonText);
+  assert.equal(this.$('[data-test-id=custom-nav--title]').text(), singleLabelText);
 });
 
 test('scott can click done to close custom nav', function(assert) {
   this.numbers = ['one', 'two', 'three'];
   this.number = ['one'];
   this.render(hbs`
-    {{#power-select-mobile 
+    {{#power-select-mobile
       multiple=true
-      renderInPlace=true 
-      navMobileComponent="nav-mobile" 
-      options=numbers 
+      labelText="${singleLabelText}"
+      buttonText="${singleButtonText}"
+      renderInPlace=true
+      navMobileComponent="nav-mobile"
+      options=numbers
       mustFallback="mobile"
-      selected=number 
+      selected=number
       className="t-multiple"
       mobileTagName="div"
       onchange=(action (mut number)) as |num|}}
@@ -180,12 +195,14 @@ test('can click done to close normal nav and close power select after selecting 
   this.numbers = ['one', 'two', 'three'];
   this.number = ['one'];
   this.render(hbs`
-    {{#power-select-mobile 
+    {{#power-select-mobile
       multiple=true
-      renderInPlace=true 
-      options=numbers 
+      labelText="${singleLabelText}"
+      buttonText="${singleButtonText}"
+      renderInPlace=true
+      options=numbers
       mustFallback="mobile"
-      selected=number 
+      selected=number
       className="t-multiple"
       mobileTagName="div"
       onchange=(action (mut number)) as |num|}}
@@ -211,11 +228,13 @@ test('can click done to close normal nav and close power select when not selecti
   this.numbers = ['one', 'two', 'three'];
   this.number = 'one';
   this.render(hbs`
-    {{#power-select-mobile 
-      renderInPlace=true 
-      options=numbers 
+    {{#power-select-mobile
+      labelText="${singleLabelText}"
+      buttonText="${singleButtonText}"
+      renderInPlace=true
+      options=numbers
       mustFallback="mobile"
-      selected=number 
+      selected=number
       className="t-multiple"
       mobileTagName="div"
       onchange=(action (mut number)) as |num|}}
