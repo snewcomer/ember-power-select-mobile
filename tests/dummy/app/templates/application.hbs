@@ -5,12 +5,10 @@
 {{#power-select-mobile
   labelText="Single"
   buttonText="Done1"
-  renderInPlace=true
   options=numbers
   mustFallback="mobile"
   selected=number
   className="t-single"
-  mobileTagName="div"
   searchEnabled=false
   onchange=(action (mut number)) as |num|
 }}
@@ -22,12 +20,10 @@
 {{#power-select-mobile
   labelText="Single"
   buttonText="Done1"
-  renderInPlace=true
   options=numbers
   mustFallback="mobile"
   selected=number2
   className="t-single-search"
-  mobileTagName="div"
   onchange=(action (mut number2)) as |num|}}
   {{num}}
 {{/power-select-mobile}}
@@ -38,12 +34,10 @@
   labelText="Single"
   buttonText="Done1"
   multiple=true
-  renderInPlace=true
   options=numbers
   mustFallback="mobile"
   selected=numbero
   className="t-multi"
-  mobileTagName="div"
   searchEnabled=false
   onchange=(action (mut numbero)) as |num|}}
   {{num}}
@@ -56,12 +50,10 @@
   labelText="Single"
   buttonText="Done1"
   multiple=true
-  renderInPlace=true
   options=numbers
   mustFallback="mobile"
   selected=numbero2
   className="t-multi-search"
-  mobileTagName="div"
   onchange=(action (mut numbero2)) as |num|}}
   {{num}}
 {{/power-select-mobile}}

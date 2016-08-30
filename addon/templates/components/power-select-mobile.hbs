@@ -6,9 +6,9 @@
       <!-- default provided -->
       <div class="ps-mobile-nav-wrapper">
         <header class="ps-mobile-header">
-          <div class="ps__head" data-test-id="custom-nav">
-            <h1 class="ps__head__title t-mobile-filter-title" data-test-id="custom-nav--title">{{labelText}}</h1>
-            <button class="ps__head__btn mobile-btn ps__head--action" {{action "done"}} data-test-id="custom-nav--done">{{buttonText}}</button>
+          <div class="ps__head" data-test-id="ember-power-select-mobile-nav">
+            <h1 class="ps__head__title t-mobile-filter-title" data-test-id="ember-power-select-mobile-nav--title">{{labelText}}</h1>
+            <button class="ps__head__btn mobile-btn ps__head--action" {{action "done"}} data-test-id="ember-power-select-mobile-nav--done">{{buttonText}}</button>
           </div>
         </header>
       </div>
@@ -47,7 +47,7 @@
       verticalPosition=verticalPosition
       horizontalPosition=horizontalPosition
       class=(concat className " ps-mobile-dropdown-wrapper")
-      tagName=mobileTagName
+      tagName="div"
       triggerClass=(concat triggerClass "power-select-mobile__trigger")
       dropdownClass=(concat dropdownClass "power-select-mobile__dropdown")
       extra=extra
