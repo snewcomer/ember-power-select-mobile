@@ -12,12 +12,13 @@ moduleForComponent('power-select-mobile', 'Integration | Component | power selec
 test('it renders the single select power-select component with custom nav', function(assert) {
   this.numbers = ['one', 'two', 'three'];
   this.number = 'one';
+  this.singleLabelText = singleLabelText;
+  this.singleButtonText = singleButtonText;
   this.render(hbs`
     {{#power-select-mobile
-      labelText="${singleLabelText}"
-      buttonText="${singleButtonText}"
+      labelText=singleLabelText
+      buttonText=singleButtonText
       renderInPlace=true
-      navMobileComponent="nav-mobile"
       options=numbers
       mustFallback="mobile"
       selected=number
@@ -43,12 +44,13 @@ test('it renders the single select power-select component with custom nav', func
 test('can click done to close custom nav', function(assert) {
   this.numbers = ['one', 'two', 'three'];
   this.number = 'one';
+  this.singleLabelText = singleLabelText;
+  this.singleButtonText = singleButtonText;
   this.render(hbs`
     {{#power-select-mobile
-      labelText="${singleLabelText}"
-      buttonText="${singleButtonText}"
+      labelText=singleLabelText
+      buttonText=singleButtonText
       renderInPlace=true
-      navMobileComponent="nav-mobile"
       options=numbers
       mustFallback="mobile"
       selected=number
@@ -69,10 +71,12 @@ test('can click done to close custom nav', function(assert) {
 test('can click done to close normal nav and close power select after selecting a number', function(assert) {
   this.numbers = ['one', 'two', 'three'];
   this.number = 'one';
+  this.singleLabelText = singleLabelText;
+  this.singleButtonText = singleButtonText;
   this.render(hbs`
     {{#power-select-mobile
-      labelText="${singleLabelText}"
-      buttonText="${singleButtonText}"
+      labelText=singleLabelText
+      buttonText=singleButtonText
       renderInPlace=true
       options=numbers
       mustFallback="mobile"
@@ -97,10 +101,12 @@ test('can click done to close normal nav and close power select after selecting 
 test('can click done to close normal nav and close power select when not selecting a number', function(assert) {
   this.numbers = ['one', 'two', 'three'];
   this.number = 'one';
+  this.singleLabelText = singleLabelText;
+  this.singleButtonText = singleButtonText;
   this.render(hbs`
     {{#power-select-mobile
-      labelText="${singleLabelText}"
-      buttonText="${singleButtonText}"
+      labelText=singleLabelText
+      buttonText=singleButtonText
       renderInPlace=true
       options=numbers
       mustFallback="mobile"
@@ -127,11 +133,13 @@ test('can click done to close normal nav and close power select when not selecti
 test('it renders the multiple select power-select component with custom nav', function(assert) {
   this.numbers = ['one', 'two', 'three'];
   this.number = ['one'];
+  this.singleLabelText = singleLabelText;
+  this.singleButtonText = singleButtonText;
   this.render(hbs`
     {{#power-select-mobile
       multiple=true
-      labelText="${singleLabelText}"
-      buttonText="${singleButtonText}"
+      labelText=singleLabelText
+      buttonText=singleButtonText
       renderInPlace=true
       navMobileComponent="nav-mobile"
       options=numbers
@@ -164,13 +172,14 @@ test('it renders the multiple select power-select component with custom nav', fu
 test('scott can click done to close custom nav', function(assert) {
   this.numbers = ['one', 'two', 'three'];
   this.number = ['one'];
+  this.singleLabelText = singleLabelText;
+  this.singleButtonText = singleButtonText;
   this.render(hbs`
     {{#power-select-mobile
       multiple=true
-      labelText="${singleLabelText}"
-      buttonText="${singleButtonText}"
+      labelText=singleLabelText
+      buttonText=singleButtonText
       renderInPlace=true
-      navMobileComponent="nav-mobile"
       options=numbers
       mustFallback="mobile"
       selected=number
@@ -194,11 +203,13 @@ test('scott can click done to close custom nav', function(assert) {
 test('can click done to close normal nav and close power select after selecting a number', function(assert) {
   this.numbers = ['one', 'two', 'three'];
   this.number = ['one'];
+  this.singleLabelText = singleLabelText;
+  this.singleButtonText = singleButtonText;
   this.render(hbs`
     {{#power-select-mobile
       multiple=true
-      labelText="${singleLabelText}"
-      buttonText="${singleButtonText}"
+      labelText=singleLabelText
+      buttonText=singleButtonText
       renderInPlace=true
       options=numbers
       mustFallback="mobile"
@@ -227,10 +238,12 @@ test('can click done to close normal nav and close power select after selecting 
 test('can click done to close normal nav and close power select when not selecting a number', function(assert) {
   this.numbers = ['one', 'two', 'three'];
   this.number = 'one';
+  this.singleLabelText = singleLabelText;
+  this.singleButtonText = singleButtonText;
   this.render(hbs`
     {{#power-select-mobile
-      labelText="${singleLabelText}"
-      buttonText="${singleButtonText}"
+      labelText=singleLabelText
+      buttonText=singleButtonText
       renderInPlace=true
       options=numbers
       mustFallback="mobile"
