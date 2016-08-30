@@ -41,7 +41,8 @@
     "loader.js": "^4.0.1"
   },
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "power-select-mobile"
   ],
   "dependencies": {
     "ember-cli-babel": "^5.1.6",
