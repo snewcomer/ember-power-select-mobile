@@ -8,6 +8,7 @@ $borderRadius: 2px;
 $dark: #293541;
 $darkGray: #303E4C;
 $light: #F5F5F5;
+$lightGray: #E5E5E5;
 $lightBlue: #6abff0;
 $menuColor: $darkGray;
 $activeColor: $lightBlue;
@@ -16,7 +17,11 @@ $activeColor: $lightBlue;
   -webkit-overflow-scrolling: touch; // DO NOT REMOVE
   overflow: auto;
 }
-
+@mixin truncate() {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 @mixin nav-box-shadow($blurRadius: 10px, $color: $dark) {
   -webkit-box-shadow: 0 0 $blurRadius $color;
   -moz-box-shadow: 0 0 $blurRadius $color;
@@ -26,66 +31,6 @@ $activeColor: $lightBlue;
 @mixin headerColors() {
   background: $menuColor;
   color: $light;
-}
-
-// navigation component
-.ps__head {
-  height: $mobileHeaderHeight;
-  @include nav-box-shadow;
-  @include headerColors;
-  display: flex;
-  .ps__head__title {
-    font-size: 1.4rem;
-    text-align: center;
-    line-height: $mobileHeaderHeight;
-    margin: 0;
-  }
-  .ps__head__btn {
-    height: $headerChildHeight;
-    margin: $headerChildMargin;
-    color: $light;
-    font-size: 14px;
-    line-height: 16px;
-  }
-  .mobile-btn {
-    border: none;
-    background: $dark;
-    padding: 0.5em 0.8em;
-    border-radius: $borderRadius;
-  }
-}
-
-.power-select-mobile--open {
-  .ps-mobile-dropdown-wrapper {
-    .ember-basic-dropdown {
-      position: static;
-    }
-    .power-select-mobile__dropdown {
-      border: none;
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      .ember-power-select-search {
-        // flex: none;
-      }
-      .ember-power-select-options[role="listbox"] {
-        // flex: auto;
-        max-height: none;
-        position: absolute;
-        top: $mobileHeaderHeight;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        @include smoothScrolling();
-        li{
-          padding: 4%;
-          border-bottom: 1px solid $light;
-        }
-      }
-    }
-  }
 }
 
 .chevron::before {
@@ -116,4 +61,68 @@ $activeColor: $lightBlue;
 .chevron.left:before {
 	left: 0.25em;
 	transform: rotate(-135deg);
+}
+
+
+.ps-mobile-dropdown-wrapper {
+  .ember-basic-dropdown {
+    position: static;
+  }
+  .power-select-mobile__dropdown {
+    border: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    .ps__head {
+      flex: none;
+      z-index: 1;
+      position: relative;
+      height: $mobileHeaderHeight;
+      @include nav-box-shadow;
+      @include headerColors;
+      .ps__head__title {
+        font-size: 1.4rem;
+        line-height: $mobileHeaderHeight;
+        margin: 0 100px 0 0;
+        text-align: center;
+        @include truncate;
+      }
+      .ps__head__btn {
+        float: left;
+        max-width: 100px;
+        height: $headerChildHeight;
+        margin: $headerChildMargin;
+        color: $light;
+        font-size: 14px;
+        line-height: 16px;
+        border: none;
+        background: $dark;
+        padding: 0.5em 0.8em;
+        border-radius: $borderRadius;
+        @include truncate;
+        &.has-text{
+          &:before{
+            margin-right: 0.5em; //moves the text over if it is present
+          }
+        }
+      }
+    }
+
+    .ember-power-select-options[role="listbox"] {
+      max-height: none;
+      flex: auto;
+      @include smoothScrolling();
+      .ember-power-select-option{
+        padding: 4%;
+        border-bottom: 1px solid $lightGray;
+        &[aria-current="true"]{
+          background-color: $activeColor;
+        }
+      }
+    }
+  }
 }

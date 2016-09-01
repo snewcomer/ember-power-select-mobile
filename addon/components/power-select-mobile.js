@@ -39,10 +39,10 @@ export default Ember.Component.extend({
     },
     mobileOpen() {
       // if already open, then dont style trigger/dropdown component nor show the nav
-      if (!this.$('.wrapper').hasClass('power-select-mobile--open')) {
-        this.$('.wrapper').addClass('power-select-mobile--open');
-        this.toggleProperty('componentOpen');
-      }
+      // if (!this.$('.wrapper').hasClass('power-select-mobile--open')) {
+      //   this.$('.wrapper').addClass('power-select-mobile--open');
+      //   this.toggleProperty('componentOpen');
+      // }
     },
   }
 });

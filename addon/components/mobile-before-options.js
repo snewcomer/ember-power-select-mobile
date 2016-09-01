@@ -5,6 +5,7 @@ import isIos from '../utils/is-ios';
 
 export default Ember.Component.extend({
   layout,
+  tagName: '',
   autofocus: true,
 
   // Lifecycle hooks
