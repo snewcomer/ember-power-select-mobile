@@ -44,11 +44,5 @@ export default Ember.Component.extend({
         this.toggleProperty('componentOpen');
       }
     },
-    done() {
-      // remove styles that style the trigger and dropdown ps components
-      this.$('.wrapper').removeClass('power-select-mobile--open');
-      // remove the nav
-      this.set('componentOpen', false);
-    },
   }
 });

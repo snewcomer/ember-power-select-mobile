@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import layout from '../templates/components/mobile-trigger';
+import layout from '../templates/components/mobile-before-options';
 import { scheduleOnce } from 'ember-runloop';
 import isIos from '../utils/is-ios';
 
@@ -41,7 +41,15 @@ export default Ember.Component.extend({
       if (isIos()) {
         //
       }
-    }
+    },
+    done() {
+      // remove styles that style the trigger and dropdown ps components
+      Ember.$('.wrapper').removeClass('power-select-mobile--open');
+      let select = this.get('select');
+      select.actions.close();
+      // remove the nav
+      //this.set('componentOpen', false);
+    },
   },
 
   // Methods

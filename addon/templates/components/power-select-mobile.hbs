@@ -1,18 +1,7 @@
+
 {{#if mobileFallback}}
   <!-- wrapper class to encapsulate nav, trigger, and dropdown components -->
   <div class="wrapper">
-    <!-- nav -->
-    {{#if componentOpen}}
-      <!-- default provided -->
-      <div class="ps-mobile-nav-wrapper">
-        <header class="ps-mobile-header">
-          <div class="ps__head" data-test-id="ember-power-select-mobile-nav">
-            <h1 class="ps__head__title t-mobile-filter-title" data-test-id="ember-power-select-mobile-nav--title">{{labelText}}</h1>
-            <button class="ps__head__btn mobile-btn ps__head--action" {{action "done"}} data-test-id="ember-power-select-mobile-nav--done">{{buttonText}}</button>
-          </div>
-        </header>
-      </div>
-    {{/if}}
     <!-- trigger and dropdown -->
     {{#component powerSelectComponentName
       ariaDescribedBy=ariaDescribedBy
@@ -39,7 +28,7 @@
       triggerComponent=triggerComponent
       selectedItemComponent=selectedItemComponent
       afterOptionsComponent=afterOptionsComponent
-      beforeOptionsComponent=(component "mobile-trigger" mobileOnFocus=(action "mobileOnFocus"))
+      beforeOptionsComponent=(component "mobile-before-options" labelText=labelText buttonText=buttonText mobileOnFocus=(action "mobileOnFocus"))
       optionsComponent=optionsComponent
       renderInPlace=true
       closeOnSelect=(if multiple false)

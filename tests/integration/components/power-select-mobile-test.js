@@ -35,7 +35,7 @@ test('it renders the single select power-select component with ember-power-selec
   nativeMouseUp('.ember-power-select-option:eq(1)');
   assert.equal(this.$('.t-single .ember-power-select-trigger').text().trim(), 'two', 'Value has been selected');
   assert.equal(this.$('.ember-power-select-options').length, 0, 'Select closed');
-  assert.equal(this.$('[data-test-id=ember-power-select-mobile-nav]').length, 1);
+  assert.equal(this.$('[data-test-id=ember-power-select-mobile-nav]').length, 0);
   assert.equal(this.$('.power-select-mobile__dropdown').length, 0, 'Selection closes power select dropdown');
 });
 
@@ -85,8 +85,8 @@ test('can click done to close nav and close power select after selecting a numbe
   assert.equal(this.$('[data-test-id=ember-power-select-mobile-nav]').length, 0);
   clickTrigger();
   assert.equal(this.$('[data-test-id=ember-power-select-mobile-nav]').length, 1);
-  nativeMouseUp('.ember-power-select-option:eq(0)');
-  assert.equal(this.$('.power-select-mobile__dropdown').length, 0, 'Selection closes power select dropdown');
+  // nativeMouseUp('.ember-power-select-option:eq(0)');
+  // assert.equal(this.$('.power-select-mobile__dropdown').length, 0, 'Selection closes power select dropdown');
   this.$('[data-test-id=ember-power-select-mobile-nav--done]').click();
   assert.equal(this.$('[data-test-id=ember-power-select-mobile-nav]').length, 0, 'done closes the nav after select');
   assert.equal(this.$('.power-select-mobile__dropdown').length, 0, 'done closes power select after select');
@@ -150,7 +150,7 @@ test('can use custom action', function(assert) {
   nativeMouseUp('.ember-power-select-option:eq(1)');
   assert.equal(this.$('.t-single .ember-power-select-trigger').text().trim(), 'custom', 'Value has been selected');
   assert.equal(this.$('.ember-power-select-options').length, 0, 'Select closed');
-  assert.equal(this.$('[data-test-id=ember-power-select-mobile-nav]').length, 1);
+  assert.equal(this.$('[data-test-id=ember-power-select-mobile-nav]').length, 0);
   assert.equal(this.$('.power-select-mobile__dropdown').length, 0, 'Selection closes power select dropdown');
 });
 

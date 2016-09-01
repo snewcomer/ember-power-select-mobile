@@ -33,9 +33,7 @@ $activeColor: $lightBlue;
   height: $mobileHeaderHeight;
   @include nav-box-shadow;
   @include headerColors;
-  button.ps__head--action {
-    background: $activeColor;
-  }
+  display: flex;
   .ps__head__title {
     font-size: 1.4rem;
     text-align: center;
@@ -43,14 +41,11 @@ $activeColor: $lightBlue;
     margin: 0;
   }
   .ps__head__btn {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
     height: $headerChildHeight;
     margin: $headerChildMargin;
     color: $light;
     font-size: 14px;
+    line-height: 16px;
   }
   .mobile-btn {
     border: none;
@@ -61,57 +56,64 @@ $activeColor: $lightBlue;
 }
 
 .power-select-mobile--open {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 100;
-  // ps will close and ensures consistent ui while component is open
-  background: $light;
-  .ps-mobile-nav-wrapper {
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    z-index: 10000;
-  }
   .ps-mobile-dropdown-wrapper {
-    position: absolute;
-    top: $mobileHeaderHeight;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    overflow: auto;
     .ember-basic-dropdown {
-      // display: flex;
-      // flex-direction: column;
-      // height: calc(100vh - #{$mobileHeaderHeight});
-    }
-    .power-select-mobile__trigger {
-      border-width: 0 0 1px;
-      border-radius: 0;
-      // display: none;
-      // flex: none;
-      // & + div {
-      //   flex: auto;
-      //   overflow-y: auto;
-      // }
+      position: static;
     }
     .power-select-mobile__dropdown {
       border: none;
-      // flex: auto;
-      position: relative; //override absolute position from ember-basic-dropdown-content
-      // display: flex;
-      // flex-direction: column;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
       .ember-power-select-search {
         // flex: none;
       }
       .ember-power-select-options[role="listbox"] {
         // flex: auto;
         max-height: none;
+        position: absolute;
+        top: $mobileHeaderHeight;
+        right: 0;
+        bottom: 0;
+        left: 0;
         @include smoothScrolling();
+        li{
+          padding: 4%;
+          border-bottom: 1px solid $light;
+        }
       }
     }
   }
+}
+
+.chevron::before {
+	border-style: solid;
+	border-width: 0.25em 0.25em 0 0;
+	content: '';
+	display: inline-block;
+	height: 0.6em;
+	left: 0.15em;
+	position: relative;
+	top: 0.15em;
+	transform: rotate(-45deg);
+	vertical-align: top;
+	width: 0.6em;
+  margin-right: 0.2em;
+}
+
+.chevron.right:before {
+	left: 0;
+	transform: rotate(45deg);
+}
+
+.chevron.bottom:before {
+	top: 0;
+	transform: rotate(135deg);
+}
+
+.chevron.left:before {
+	left: 0.25em;
+	transform: rotate(-135deg);
 }
