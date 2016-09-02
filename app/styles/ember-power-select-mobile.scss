@@ -39,33 +39,20 @@ $ps-activeColor: $ps-lightBlue;
   content: '';
   display: inline-block;
   height: 0.6em;
-  left: 0.15em;
+  left: 0.25em;
+  transform: rotate(-135deg);
   position: relative;
   top: 0.15em;
-  transform: rotate(-45deg);
   vertical-align: top;
   width: 0.6em;
   margin-right: 0.2em;
 }
 
-.chevron.right:before {
-  left: 0;
-  transform: rotate(45deg);
-}
 
-.chevron.bottom:before {
-  top: 0;
-  transform: rotate(135deg);
-}
-
-.chevron.left:before {
-  left: 0.25em;
-  transform: rotate(-135deg);
-}
-
-
-.ember-basic-dropdown {
-  position: static;
+.power-select-mobile-wrapper {
+  .ember-basic-dropdown {
+    position: static;
+  }
 }
 
 .power-select-mobile__dropdown {
@@ -90,7 +77,19 @@ $ps-activeColor: $ps-lightBlue;
   }
 }
 
-.ps__head {
+.ps__mobile__search {
+  flex: none;
+  height: $ps-mobileHeaderHeight;
+  z-index: 1;
+  position: relative;
+  @include nav-box-shadow;
+  input {
+    border: none;
+    height: inherit;
+  }
+}
+
+.ps__mobile__head {
   flex: none;
   z-index: 1;
   position: relative;
@@ -98,11 +97,11 @@ $ps-activeColor: $ps-lightBlue;
   @include nav-box-shadow;
   @include headerColors;
   display: flex;
-  div.spacer {
+  div.ps__mobile__head__spacer {
     width: 100px;
     flex: none;
   }
-  .ps__head__title {
+  .ps__mobile__head__title {
     flex: auto;
     font-size: 1.4rem;
     line-height: $ps-mobileHeaderHeight;
@@ -110,7 +109,7 @@ $ps-activeColor: $ps-lightBlue;
     text-align: center;
     @include truncate;
   }
-  .ps__head__btn {
+  .ps__mobile__head__btn {
     float: left;
     max-width: 100px;
     height: $ps-headerChildHeight;
@@ -130,3 +129,4 @@ $ps-activeColor: $ps-lightBlue;
     }
   }
 }
+
