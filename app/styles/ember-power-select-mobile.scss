@@ -1,17 +1,17 @@
 @import 'ember-power-select';
 
 //colors - need to make psmobile specific so doesnt clash with others
-$mobileHeaderHeight: 60px;
-$headerChildHeight: 36px;
-$headerChildMargin: ($mobileHeaderHeight - $headerChildHeight) / 2;
-$borderRadius: 2px;
-$dark: #293541;
-$darkGray: #303E4C;
-$light: #F5F5F5;
-$lightGray: #E5E5E5;
-$lightBlue: #6abff0;
-$menuColor: $darkGray;
-$activeColor: $lightBlue;
+$ps-mobileHeaderHeight: 60px;
+$ps-headerChildHeight: 36px;
+$ps-headerChildMargin: ($mobileHeaderHeight - $headerChildHeight) / 2;
+$ps-borderRadius: 2px;
+$ps-dark: #293541;
+$ps-darkGray: #303E4C;
+$ps-light: #F5F5F5;
+$ps-lightGray: #E5E5E5;
+$ps-lightBlue: #6abff0;
+$ps-menuColor: $darkGray;
+$ps-activeColor: $lightBlue;
 
 @mixin smoothScrolling() {
   -webkit-overflow-scrolling: touch; // DO NOT REMOVE
@@ -22,106 +22,109 @@ $activeColor: $lightBlue;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-@mixin nav-box-shadow($blurRadius: 10px, $color: $dark) {
-  -webkit-box-shadow: 0 0 $blurRadius $color;
-  -moz-box-shadow: 0 0 $blurRadius $color;
-  box-shadow: 0 0 $blurRadius $color;
+@mixin nav-box-shadow($ps-blurRadius: 10px, $color: $dark) {
+  -webkit-box-shadow: 0 0 $ps-blurRadius $color;
+  -moz-box-shadow: 0 0 $ps-blurRadius $color;
+  box-shadow: 0 0 $ps-blurRadius $color;
 }
 
 @mixin headerColors() {
-  background: $menuColor;
-  color: $light;
+  background: $ps-menuColor;
+  color: $ps-light;
 }
 
 .chevron::before {
-	border-style: solid;
-	border-width: 0.25em 0.25em 0 0;
-	content: '';
-	display: inline-block;
-	height: 0.6em;
-	left: 0.15em;
-	position: relative;
-	top: 0.15em;
-	transform: rotate(-45deg);
-	vertical-align: top;
-	width: 0.6em;
+  border-style: solid;
+  border-width: 0.25em 0.25em 0 0;
+  content: '';
+  display: inline-block;
+  height: 0.6em;
+  left: 0.15em;
+  position: relative;
+  top: 0.15em;
+  transform: rotate(-45deg);
+  vertical-align: top;
+  width: 0.6em;
   margin-right: 0.2em;
 }
 
 .chevron.right:before {
-	left: 0;
-	transform: rotate(45deg);
+  left: 0;
+  transform: rotate(45deg);
 }
 
 .chevron.bottom:before {
-	top: 0;
-	transform: rotate(135deg);
+  top: 0;
+  transform: rotate(135deg);
 }
 
 .chevron.left:before {
-	left: 0.25em;
-	transform: rotate(-135deg);
+  left: 0.25em;
+  transform: rotate(-135deg);
 }
 
 
-.ps-mobile-dropdown-wrapper {
-  .ember-basic-dropdown {
-    position: static;
-  }
-  .power-select-mobile__dropdown {
-    border: none;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    .ps__head {
-      flex: none;
-      z-index: 1;
-      position: relative;
-      height: $mobileHeaderHeight;
-      @include nav-box-shadow;
-      @include headerColors;
-      .ps__head__title {
-        font-size: 1.4rem;
-        line-height: $mobileHeaderHeight;
-        margin: 0 100px 0 0;
-        text-align: center;
-        @include truncate;
-      }
-      .ps__head__btn {
-        float: left;
-        max-width: 100px;
-        height: $headerChildHeight;
-        margin: $headerChildMargin;
-        color: $light;
-        font-size: 14px;
-        line-height: 16px;
-        border: none;
-        background: $dark;
-        padding: 0.5em 0.8em;
-        border-radius: $borderRadius;
-        @include truncate;
-        &.has-text{
-          &:before{
-            margin-right: 0.5em; //moves the text over if it is present
-          }
-        }
-      }
-    }
+.ember-basic-dropdown {
+  position: static;
+}
 
-    .ember-power-select-options[role="listbox"] {
-      max-height: none;
-      flex: auto;
-      @include smoothScrolling();
-      .ember-power-select-option{
-        padding: 4%;
-        border-bottom: 1px solid $lightGray;
-        &[aria-current="true"]{
-          background-color: $activeColor;
-        }
+.power-select-mobile__dropdown {
+  border: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+
+  .ember-power-select-options[role="listbox"] {
+    max-height: none;
+    flex: auto;
+    @include smoothScrolling();
+    .ember-power-select-option{
+      padding: 4%;
+      border-bottom: 1px solid $ps-lightGray;
+    }
+  }
+}
+
+.ps__head {
+  flex: none;
+  z-index: 1;
+  position: relative;
+  height: $ps-mobileHeaderHeight;
+  @include nav-box-shadow;
+  @include headerColors;
+  display: flex;
+  div.spacer {
+    width: 100px;
+    flex: none;
+  }
+  .ps__head__title {
+    flex: auto;
+    font-size: 1.4rem;
+    line-height: $ps-mobileHeaderHeight;
+    margin: 0;
+    text-align: center;
+    @include truncate;
+  }
+  .ps__head__btn {
+    float: left;
+    max-width: 100px;
+    height: $ps-headerChildHeight;
+    margin: $ps-headerChildMargin;
+    color: $ps-light;
+    font-size: 14px;
+    line-height: 16px;
+    border: none;
+    background: $ps-dark;
+    padding: 0.5em 0.8em;
+    border-radius: $ps-borderRadius;
+    @include truncate;
+    &.has-text{
+      &:before{
+        margin-right: 0.5em; //moves the text over if it is present
       }
     }
   }
