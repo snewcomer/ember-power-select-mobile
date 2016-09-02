@@ -3,15 +3,15 @@
 //colors - need to make psmobile specific so doesnt clash with others
 $ps-mobileHeaderHeight: 60px;
 $ps-headerChildHeight: 36px;
-$ps-headerChildMargin: ($mobileHeaderHeight - $headerChildHeight) / 2;
+$ps-headerChildMargin: ($ps-mobileHeaderHeight - $ps-headerChildHeight) / 2;
 $ps-borderRadius: 2px;
 $ps-dark: #293541;
 $ps-darkGray: #303E4C;
 $ps-light: #F5F5F5;
 $ps-lightGray: #E5E5E5;
 $ps-lightBlue: #6abff0;
-$ps-menuColor: $darkGray;
-$ps-activeColor: $lightBlue;
+$ps-menuColor: $ps-darkGray;
+$ps-activeColor: $ps-lightBlue;
 
 @mixin smoothScrolling() {
   -webkit-overflow-scrolling: touch; // DO NOT REMOVE
@@ -22,7 +22,7 @@ $ps-activeColor: $lightBlue;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-@mixin nav-box-shadow($ps-blurRadius: 10px, $color: $dark) {
+@mixin nav-box-shadow($ps-blurRadius: 10px, $color: $ps-dark) {
   -webkit-box-shadow: 0 0 $ps-blurRadius $color;
   -moz-box-shadow: 0 0 $ps-blurRadius $color;
   box-shadow: 0 0 $ps-blurRadius $color;
