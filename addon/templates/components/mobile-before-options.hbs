@@ -1,23 +1,43 @@
 <div class="ps__mobile__head" data-test-id="ember-power-select-mobile-nav">
-  <div class="ps__mobile__head__spacer">
+  <div class={{unless searchEnabled "ps__mobile__head__spacer"}}>
     <button class="ps__mobile__head__btn chevron {{if buttonText 'has-text'}}" {{action "done"}} data-test-id="ember-power-select-mobile-nav--done">{{buttonText}}</button>
   </div>
-  <h1 class="ps__mobile__head__title t-mobile-filter-title" data-test-id="ember-power-select-mobile-nav--title">{{labelText}}</h1>
-  <div class="ps__mobile__head__spacer"></div>
+  {{#if searchEnabled}}
+    <div class="ps__mobile__search">
+      <input type="text" 
+        autocomplete="off"
+        autocorrect="off" 
+        autocapitalize="off"
+        spellcheck="false" 
+        role="combobox"
+        class="ember-power-select-search-input"
+        value={{select.searchText}}
+        aria-controls={{listboxId}}
+        placeholder={{labelText}}
+        oninput={{onInput}}
+        onfocus={{action "mobileOnFocus"}}
+        onblur={{onBlur}}
+        onkeydown={{action "onKeydown"}}
+        data-test-id="ember-power-select-mobile-nav--search-input"
+        >
+    </div>
+    {{#if countSelected}}
+      {{#if multiple}}
+      <!-- if multiple and has length on selected, show count and push over search input -->
+      <div class="ps__mobile__head__count" data-test-id="ember-power-select-mobile-nav--count">{{countSelected}}</div>
+      {{/if}}
+    {{/if}}
+  {{else}}
+    <!-- single/multi no search -->
+    <h1 class="ps__mobile__head__title t-mobile-filter-title" data-test-id="ember-power-select-mobile-nav--title">{{labelText}}</h1>
+    <div class="ps__mobile__head__spacer">
+      {{#if countSelected}}
+        {{#if multiple}}
+          <!-- no search but if multiple and has length on selected, show count keep title centered -->
+          <div class="ps__mobile__head__count" data-test-id="ember-power-select-mobile-nav--count">{{countSelected}}</div>
+        {{/if}}
+      {{/if}}
+    </div>
+  {{/if}}
 </div>
 
-{{#if searchEnabled}}
-  <div class="ps__mobile__search">
-    <input type="search" autocomplete="off"
-      autocorrect="off" autocapitalize="off"
-      spellcheck="false" role="combobox"
-      class="ember-power-select-search-input"
-      value={{select.searchText}}
-      aria-controls={{listboxId}}
-      placeholder={{searchPlaceholder}}
-      oninput={{onInput}}
-      onfocus={{onFocus}}
-      onblur={{onBlur}}
-      onkeydown={{action "onKeydown"}}>
-  </div>
-{{/if}}

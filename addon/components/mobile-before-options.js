@@ -40,7 +40,8 @@ export default Ember.Component.extend({
     mobileOnFocus() {
       this.onFocus();
       if (isIos()) {
-        //
+        // still need to figure out how to bring up keyboard on select of power-select
+        Ember.$('.ember-power-select-options[role="listbox"]').addClass('ember-power-select-options--ios');
       }
     },
     done() {

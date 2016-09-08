@@ -26,7 +26,7 @@
       searchMessage=searchMessage
       selectedItemComponent=selectedItemComponent
       afterOptionsComponent=afterOptionsComponent
-      beforeOptionsComponent=(component "mobile-before-options" labelText=labelText buttonText=buttonText)
+      beforeOptionsComponent=(component "mobile-before-options" multiple=multiple countSelected=selected.length labelText=labelText buttonText=buttonText)
       optionsComponent=optionsComponent
       renderInPlace=false
       closeOnSelect=(if multiple false)
@@ -55,7 +55,7 @@
     ariaInvalid=ariaInvalid
     ariaLabel=ariaLabel
     ariaLabelledBy=ariaLabelledBy
-    options=optionsArray
+    options=options
     selected=selected
     onchange=onchange
     onkeydown=onkeydown
