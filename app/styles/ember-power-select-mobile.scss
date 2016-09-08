@@ -29,7 +29,7 @@ $ps-activeColor: $ps-lightBlue;
 }
 
 @mixin headerColors() {
-  background: $ps-menuColor;
+  background: $ps-darkGray;
   color: $ps-light;
 }
 
@@ -57,76 +57,117 @@ $ps-activeColor: $ps-lightBlue;
 
 .power-select-mobile__dropdown {
   border: none;
+  border-radius: 0;
   position: fixed;
   top: 0 !important;
   right: 0 !important;
   bottom: 0 !important;
   left: 0 !important;
   width: auto !important;
-  display: flex;
+  display: flex; // flex for ps__mobile__head && .ember-power-select-options[role="listbox"]
   flex-direction: column;
 
+  // ENSURE list of options take up full height and no aria-current color since no arrows or enter actions in mobile
   .ember-power-select-options[role="listbox"] {
     max-height: none;
-    flex: auto;
+    flex: auto; // grow to take up remaining space on phone
     @include smoothScrolling();
-    .ember-power-select-option{
+    .ember-power-select-option {
       padding: 4%;
       border-bottom: 1px solid $ps-lightGray;
-    }
-  }
-}
-
-.ps__mobile__search {
-  flex: none;
-  height: $ps-mobileHeaderHeight;
-  z-index: 1;
-  position: relative;
-  @include nav-box-shadow;
-  input {
-    border: none;
-    height: inherit;
-  }
-}
-
-.ps__mobile__head {
-  flex: none;
-  z-index: 1;
-  position: relative;
-  height: $ps-mobileHeaderHeight;
-  @include nav-box-shadow;
-  @include headerColors;
-  display: flex;
-  div.ps__mobile__head__spacer {
-    width: 100px;
-    flex: none;
-  }
-  .ps__mobile__head__title {
-    flex: auto;
-    font-size: 1.4rem;
-    line-height: $ps-mobileHeaderHeight;
-    margin: 0;
-    text-align: center;
-    @include truncate;
-  }
-  .ps__mobile__head__btn {
-    float: left;
-    max-width: 100px;
-    height: $ps-headerChildHeight;
-    margin: $ps-headerChildMargin;
-    color: $ps-light;
-    font-size: 14px;
-    line-height: 16px;
-    border: none;
-    background: $ps-dark;
-    padding: 0.5em 0.8em;
-    border-radius: $ps-borderRadius;
-    @include truncate;
-    &.has-text{
-      &:before{
-        margin-right: 0.5em; //moves the text over if it is present
+      &[aria-current="true"] {
+        background: inherit;
+        color: inherit;
+      }
+      // making sure selected items is shown even if it is the current item.  
+      // ember ps puts this background-color in the global scope and thus we were overriding it with the previous aria-current="true" declaration
+      &[aria-selected="true"] {
+        background-color: $ember-power-select-selected-background;
       }
     }
+    // IOS - add margin bottom of height of keyboard.  This is a WIP.  Also same across diff sizes???
+    &.ember-power-select-options--ios {
+      margin-bottom: 216px !important
+    }
+  }
+
+  // Button, Search (searchEnabled), Title (no searchEnabled)
+  .ps__mobile__head {
+    flex: none; // flex none to maintain strict height
+    z-index: 1;
+    position: relative;
+    height: $ps-mobileHeaderHeight;
+    @include nav-box-shadow;
+    @include headerColors;
+    display: flex; // flex header children
+    div.ps__mobile__head__spacer {
+      width: 100px;
+      flex: none;
+    }
+    .ps__mobile__head__title {
+      flex: auto;
+      font-size: 1.4rem;
+      line-height: $ps-mobileHeaderHeight;
+      margin: 0;
+      text-align: center;
+      @include truncate;
+    }
+    .ps__mobile__head__btn, .ps__mobile__head__count {
+      float: left;
+      max-width: 100px;
+      height: $ps-headerChildHeight;
+      margin: $ps-headerChildMargin;
+      color: $ps-light;
+      font-size: 14px;
+      line-height: 16px;
+      border: none;
+      background: $ps-dark;
+      padding: 0 $ps-headerChildMargin;
+      border-radius: $ps-borderRadius;
+      &.has-text{
+        &:before{
+          margin-right: 0.5em; //moves the text over if it is present
+        }
+      }
+    }
+    // if user passes string that is too long
+    .ps__mobile__head__btn {
+      @include truncate;
+    }
+    // count only for multiple power selects
+    .ps__mobile__head__count { 
+      flex: auto;
+      margin-left: 0;
+      line-height: $ps-headerChildHeight;
+      float: right;
+      text-align: center;
+    }
   }
 }
+
+// MIGHT think about removing these custom colors and shadows and move to dummy css to show how we did it
+.ps__mobile__search {
+  flex: auto;
+  height: $ps-headerChildHeight;
+  z-index: 1;
+  position: relative;
+  @include nav-box-shadow;
+  margin: $ps-headerChildMargin;
+  margin-left: 0;
+  width: 100%;
+  input {
+    padding: 0 4%;
+    border-radius: $ps-borderRadius;
+    -webkit-border-radius: $ps-borderRadius;
+    border: none;
+    height: inherit;
+    background-color: $ps-dark;
+    color: $ps-light;
+    &:focus {
+      outline: none;
+      border: none;
+    }
+  }
+}
+
 
