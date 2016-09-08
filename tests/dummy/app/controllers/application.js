@@ -73,14 +73,4 @@ export default Ember.Controller.extend({
   numbers,
   users,
   nestedNumbers,
-  mustFallback: false,
-  // Actions
-  actions: {
-    toggleFallback() {
-      this.toggleProperty('mustFallback');
-    },
-    selectMe() {
-      //
-    }
-  }
 });

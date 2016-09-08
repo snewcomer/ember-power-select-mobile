@@ -7,7 +7,6 @@
   labelText="Single"
   buttonText="Done1"
   options=numbers
-  mustFallback="mobile"
   selected=number
   className="t-single"
   searchEnabled=false
@@ -22,7 +21,6 @@
   labelText="Single"
   buttonText="Done1"
   options=numbers
-  mustFallback="mobile"
   selected=number2
   className="t-single-search"
   onchange=(action (mut number2)) as |num|}}
@@ -32,11 +30,10 @@
 <h3>Multiple</h3>
 <!-- multiple / no nav component provided -->
 {{#power-select-mobile
-  labelText="Single"
+  labelText="Multiple"
   buttonText="Done1"
   multiple=true
   options=numbers
-  mustFallback="mobile"
   selected=numbero
   className="t-multi"
   searchEnabled=false
@@ -48,11 +45,10 @@
 <h3>Multiple with Search</h3>
 <!-- multiple / no nav component provided -->
 {{#power-select-mobile
-  labelText="Single"
+  labelText="Multiple"
   buttonText="Done1"
   multiple=true
   options=numbers
-  mustFallback="mobile"
   selected=numbero2
   className="t-multi-search"
   onchange=(action (mut numbero2)) as |num|}}

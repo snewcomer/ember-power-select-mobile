@@ -1,1 +1,27 @@
 @import 'ember-power-select-mobile';
+
+@mixin generalPadding() {
+  padding: 4%;
+}
+
+$gray: #E5E5E5;
+$lightBlue: #6abff0;
+$white: #FFF;
+$borderColor: $gray;
+$borderStyle: 1px solid $borderColor;
+$activeColor: $lightBlue;
+
+.ember-power-select-option {
+  @include generalPadding;
+  border-bottom: $borderStyle;
+  &[aria-selected="true"] {
+    background: $white;
+    &:after {
+      content: "\f00c";
+      // NOTE: link to font awesome in dummy index.html
+      font-family: FontAwesome;
+      float: right;
+      color: $activeColor;
+    }
+  }
+}
