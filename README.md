@@ -27,13 +27,13 @@ For more information on using ember-cli, visit [http://ember-cli.com/](http://em
 
 ## API
 
-* labelText - renders in middle of provided nav component
-* buttonText - renders in the header to close out ember-power-select-mobile
-* className - useful for targeting in tests
-* options - array of JS primitives or array of objects
-* selected - JS primitive or object that is selected.  May delegate to action if needed.
-* searchEnabled - shows search box in header
-* onchange - action to handle selection of option
+* `labelText` - renders in middle of provided nav component
+* `buttonText` - renders in the header to close out ember-power-select-mobile
+* `className` - useful for targeting in tests
+* `options` - array of JS primitives or array of objects
+* `selected` - JS primitive or object that is selected.  May delegate to action if needed.
+* `searchEnabled` - shows search box in header
+* `onchange` - action to handle selection of option
 
 
 ## Notes
