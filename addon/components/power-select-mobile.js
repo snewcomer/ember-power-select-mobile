@@ -13,11 +13,14 @@ export default EmberPowerSelect.extend({
   isIos: Ember.computed(function() {
     return isIos();
   }),
-  powerSelectComponentName: computed('multiple', function() {
+  powerSelectComponentName: computed(function() {
     return this.get('multiple') ? 'power-select-multiple' : 'power-select';
   }),
   mobileFallback: computed('fallback-when', function() {
     return isMobile();
+  }),
+  triggerComponent: computed(function() {
+    return this.get('multiple') ? 'power-select-multiple/trigger' : 'power-select/trigger';
   }),
   actions: {
     mobileOnFocus(){

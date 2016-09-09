@@ -140,7 +140,7 @@ test('can use custom action [SINGLE NO SEARCH]', function(assert) {
 
 // SINGLE SEARCH
 
-test('single select power-select component with and can select an option [SINGLE NO SEARCH]', function(assert) {
+test('single select power-select component with and can select an option [SINGLE SEARCH]', function(assert) {
   this.numbers = ['one', 'two', 'three'];
   this.number = 'one';
   this.singleLabelText = singleLabelText;
@@ -171,7 +171,7 @@ test('single select power-select component with and can select an option [SINGLE
   assert.equal($('.power-select-mobile__dropdown').length, 0, 'Selection closes power select dropdown');
 });
 
-test('can click done to close nav and close power select after selecting a number [SINGLE NO SEARCH]', function(assert) {
+test('can click done to close nav and close power select after selecting a number [SINGLE SEARCH]', function(assert) {
   this.numbers = ['one', 'two', 'three'];
   this.number = 'one';
   this.singleLabelText = singleLabelText;
@@ -200,7 +200,7 @@ test('can click done to close nav and close power select after selecting a numbe
   assert.equal($('.power-select-mobile__dropdown').length, 0, 'done closes power select after select');
 });
 
-test('can click done to close nav and close power select when not selecting a number [SINGLE NO SEARCH]', function(assert) {
+test('can click done to close nav and close power select when not selecting a number [SINGLE SEARCH]', function(assert) {
   this.numbers = ['one', 'two', 'three'];
   this.number = 'one';
   this.singleLabelText = singleLabelText;
@@ -227,7 +227,7 @@ test('can click done to close nav and close power select when not selecting a nu
   assert.equal($('.power-select-mobile__dropdown').length, 0, 'done closes power select');
 });
 
-test('can use custom action [SINGLE NO SEARCH]', function(assert) {
+test('can use custom action [SINGLE SEARCH]', function(assert) {
   this.numbers = ['one', 'two', 'three'];
   this.number = 'one';
   this.singleLabelText = singleLabelText;
@@ -276,7 +276,6 @@ test('it renders the multiple select power-select component with nav and can sel
       multiple=true
       labelText=singleLabelText
       buttonText=singleButtonText
-      navMobileComponent='nav-mobile'
       options=numbers
       selected=number
       className='t-multiple'
@@ -378,7 +377,6 @@ test('it renders the multiple select power-select component with nav and can sel
       multiple=true
       labelText=singleLabelText
       buttonText=singleButtonText
-      navMobileComponent='nav-mobile'
       options=numbers
       selected=number
       className='t-multiple'
