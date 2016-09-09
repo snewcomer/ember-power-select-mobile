@@ -1,7 +1,7 @@
 {
   "name": "ember-power-select-mobile",
   "version": "0.0.1",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "Ember Power Select Mobile Addon",
   "directories": {
     "doc": "doc",
     "test": "tests"
