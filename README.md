@@ -1,8 +1,8 @@
-# ember-power-select-mobile - WIP - Version 0.0.0
+# ember-power-select-mobile - WIP - Version 0.0.1
 
 ## Installation
 
-* `ember install ember-power-select-mobile` - TODO
+* `ember install ember-power-select-mobile`
 
 ## Notes
 
@@ -11,8 +11,7 @@
 * Forces `renderInPlace` false in order to put dropdown-content in the `ember-basic-dropdown-wormhole` and leave the trigger in the background.
 * Contains default styling for the header component with a title and button.
 * clone this repository and run `ember s` to see possible styling options.
-* For examples, see `tests/` folder for dummy app or applicable tests or styling options
-* renderInPlace default is set to true so options are not attached to the root of the body
+* For examples, see `tests/` folder for dummy app or applicable tests
 
 ## Definition
   ```
@@ -40,6 +39,8 @@
   ```
 
 ## Usage
+
+* Single without search
   ```
   {{#power-select-mobile
     class="t-role-role-type"
@@ -55,6 +56,23 @@
     {{t option.name}}
   {{/power-select-mobile}}
   ```
+
+* Multiple with search
+  ```
+  {{#power-select-mobile
+    multiple=true
+    class="t-store-locations"
+    tagName="div"
+    options=options
+    selected=store.locations
+    onchange=(action "selected")
+    labelText=labelText
+    buttonText=buttonText
+    as |option|
+  }}
+    {{t option.name}}
+  {{/power-select-mobile}}
+  ```
   
 ## API - ember-power-select-mobile
 
@@ -62,6 +80,3 @@
 * `buttonText` - renders in the header to close out ember-power-select-mobile
 * `searchEnabled` - shows search box in header
 * `multiple` - render `power-select-multiple`
-
-
-For more information on using ember-cli, visit [http://ember-cli.com/](http://ember-cli.com/).

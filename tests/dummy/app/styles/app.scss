@@ -11,7 +11,19 @@ $borderColor: $gray;
 $borderStyle: 1px solid $borderColor;
 $activeColor: $lightBlue;
 
+@mixin nav-box-shadow($ps-blurRadius: 10px, $color: $ps-dark) {
+  -webkit-box-shadow: 0 0 $ps-blurRadius $color;
+  -moz-box-shadow: 0 0 $ps-blurRadius $color;
+  box-shadow: 0 0 $ps-blurRadius $color;
+}
+
 .power-select-mobile__dropdown {
+  .ps__mobile__head {
+    @include nav-box-shadow;
+  }
+  .ps__mobile__search {
+    @include nav-box-shadow;
+  }
   .ember-power-select-option {
     @include generalPadding;
     border-bottom: $borderStyle;
