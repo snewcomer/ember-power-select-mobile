@@ -26,14 +26,18 @@
       searchMessage=searchMessage
       selectedItemComponent=selectedItemComponent
       afterOptionsComponent=afterOptionsComponent
-      beforeOptionsComponent=(component "mobile-before-options" multiple=multiple countSelected=selected.length labelText=labelText buttonText=buttonText)
+      beforeOptionsComponent=(component "mobile-before-options" 
+                                multiple=multiple 
+                                countSelected=selected.length 
+                                labelText=labelText 
+                                buttonText=buttonText)
       optionsComponent=optionsComponent
       renderInPlace=false
       closeOnSelect=(if multiple false)
       allowClear=allowClear
       verticalPosition=verticalPosition
       horizontalPosition=horizontalPosition
-      class=(concat className " ps-mobile-dropdown-wrapper")
+      class=className
       tagName="div"
       triggerClass=(concat triggerClass "power-select-mobile__trigger")
       dropdownClass=(concat dropdownClass "power-select-mobile__dropdown")

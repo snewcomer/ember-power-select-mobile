@@ -43,7 +43,7 @@ $ps-activeColor: $ps-lightBlue;
   margin-right: 0.2em;
 }
 
-
+/* Used to get full screen */
 .power-select-mobile-wrapper {
   .ember-basic-dropdown {
     position: static;
@@ -67,6 +67,7 @@ $ps-activeColor: $ps-lightBlue;
     max-height: none;
     flex: auto; // grow to take up remaining space on phone
     @include smoothScrolling();
+
     .ember-power-select-option {
       padding: 4%;
       border-bottom: 1px solid $ps-lightGray;
@@ -80,9 +81,10 @@ $ps-activeColor: $ps-lightBlue;
         background-color: $ember-power-select-selected-background;
       }
     }
+
     // IOS - add margin bottom of height of keyboard.  This is a WIP.  Also same across diff sizes???
     &.ember-power-select-options--ios {
-      margin-bottom: 216px !important
+      margin-bottom: 216px !important;
     }
   }
 
@@ -94,10 +96,12 @@ $ps-activeColor: $ps-lightBlue;
     height: $ps-mobileHeaderHeight;
     @include headerColors;
     display: flex; // flex header children
+
     div.ps__mobile__head__spacer {
       width: 100px;
       flex: none;
     }
+
     .ps__mobile__head__title {
       flex: auto;
       font-size: 1.4rem;
@@ -106,6 +110,7 @@ $ps-activeColor: $ps-lightBlue;
       text-align: center;
       @include truncate;
     }
+
     .ps__mobile__head__btn, .ps__mobile__head__count {
       float: left;
       max-width: 100px;
@@ -118,16 +123,19 @@ $ps-activeColor: $ps-lightBlue;
       background: $ps-dark;
       padding: 0 $ps-headerChildMargin;
       border-radius: $ps-borderRadius;
+
       &.has-text{
         &:before{
           margin-right: 0.5em; //moves the text over if it is present
         }
       }
     }
+
     // if user passes string that is too long
     .ps__mobile__head__btn {
       @include truncate;
     }
+
     // count only for multiple power selects
     .ps__mobile__head__count { 
       flex: auto;
@@ -148,6 +156,7 @@ $ps-activeColor: $ps-lightBlue;
   margin: $ps-headerChildMargin;
   margin-left: 0;
   width: 100%;
+
   input {
     padding: 0 4%;
     border-radius: $ps-borderRadius;
