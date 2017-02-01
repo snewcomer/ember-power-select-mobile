@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 import { clickTrigger, nativeMouseUp } from '../../helpers/ember-power-select';
@@ -33,15 +34,15 @@ test('single select power-select component with and can select an option [SINGLE
   `);
   assert.equal(this.$('.t-single .ember-power-select-trigger').text().trim(), 'one', 'Value has been selected');
   clickTrigger();
-  assert.equal($('.ember-power-select-option').length, 3);
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav]').length, 1);
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav--done]').text(), singleButtonText);
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav--title]').text(), singleLabelText);
+  assert.equal(Ember.$('.ember-power-select-option').length, 3);
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav]').length, 1);
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav--done]').text(), singleButtonText);
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav--title]').text(), singleLabelText);
   nativeMouseUp('.ember-power-select-option:eq(1)');
-  assert.equal($('.t-single .ember-power-select-trigger').text().trim(), 'two', 'Value has been selected');
-  assert.equal($('.ember-power-select-options').length, 0, 'Select closed');
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav]').length, 0);
-  assert.equal($('.power-select-mobile__dropdown').length, 0, 'Selection closes power select dropdown');
+  assert.equal(Ember.$('.t-single .ember-power-select-trigger').text().trim(), 'two', 'Value has been selected');
+  assert.equal(Ember.$('.ember-power-select-options').length, 0, 'Select closed');
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav]').length, 0);
+  assert.equal(Ember.$('.power-select-mobile__dropdown').length, 0, 'Selection closes power select dropdown');
 });
 
 test('can click done to close nav and close power select after selecting a number [SINGLE NO SEARCH]', function(assert) {
@@ -63,15 +64,15 @@ test('can click done to close nav and close power select after selecting a numbe
     {{/power-select-mobile}}
   `);
   assert.equal(this.$('.t-single .ember-power-select-trigger').text().trim(), 'one', 'Value has been selected');
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav]').length, 0);
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav]').length, 0);
   clickTrigger();
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav]').length, 1);
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav]').length, 1);
   nativeMouseUp('.ember-power-select-option:eq(0)');
-  assert.equal($('.power-select-mobile__dropdown').length, 0, 'Selection closes power select dropdown');
+  assert.equal(Ember.$('.power-select-mobile__dropdown').length, 0, 'Selection closes power select dropdown');
   // click done after selecting a number
-  $('[data-test-id=ember-power-select-mobile-nav--done]').click();
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav]').length, 0, 'done closes the nav after select');
-  assert.equal($('.power-select-mobile__dropdown').length, 0, 'done closes power select after select');
+  Ember.$('[data-test-id=ember-power-select-mobile-nav--done]').click();
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav]').length, 0, 'done closes the nav after select');
+  assert.equal(Ember.$('.power-select-mobile__dropdown').length, 0, 'done closes power select after select');
 });
 
 test('can click done to close nav and close power select when not selecting a number [SINGLE NO SEARCH]', function(assert) {
@@ -93,13 +94,13 @@ test('can click done to close nav and close power select when not selecting a nu
     {{/power-select-mobile}}
   `);
   assert.equal(this.$('.t-single .ember-power-select-trigger').text().trim(), 'one', 'Value has been selected');
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav]').length, 0);
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav]').length, 0);
   clickTrigger();
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav]').length, 1);
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav]').length, 1);
   // click done w/o selecting a number
-  $('[data-test-id=ember-power-select-mobile-nav--done]').click();
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav]').length, 0, 'done closes the nav');
-  assert.equal($('.power-select-mobile__dropdown').length, 0, 'done closes power select');
+  Ember.$('[data-test-id=ember-power-select-mobile-nav--done]').click();
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav]').length, 0, 'done closes the nav');
+  assert.equal(Ember.$('.power-select-mobile__dropdown').length, 0, 'done closes power select');
 });
 
 test('can use custom action [SINGLE NO SEARCH]', function(assert) {
@@ -126,15 +127,15 @@ test('can use custom action [SINGLE NO SEARCH]', function(assert) {
   `);
   assert.equal(this.$('.t-single .ember-power-select-trigger').text().trim(), 'one', 'Value has been selected');
   clickTrigger();
-  assert.equal($('.ember-power-select-option').length, 3);
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav]').length, 1);
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav--done]').text(), singleButtonText);
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav--title]').text(), singleLabelText);
+  assert.equal(Ember.$('.ember-power-select-option').length, 3);
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav]').length, 1);
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav--done]').text(), singleButtonText);
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav--title]').text(), singleLabelText);
   nativeMouseUp('.ember-power-select-option:eq(1)');
-  assert.equal($('.t-single .ember-power-select-trigger').text().trim(), 'custom', 'Value has been selected');
-  assert.equal($('.ember-power-select-options').length, 0, 'Select closed');
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav]').length, 0);
-  assert.equal($('.power-select-mobile__dropdown').length, 0, 'Selection closes power select dropdown');
+  assert.equal(Ember.$('.t-single .ember-power-select-trigger').text().trim(), 'custom', 'Value has been selected');
+  assert.equal(Ember.$('.ember-power-select-options').length, 0, 'Select closed');
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav]').length, 0);
+  assert.equal(Ember.$('.power-select-mobile__dropdown').length, 0, 'Selection closes power select dropdown');
 });
 
 
@@ -159,16 +160,16 @@ test('single select power-select component with and can select an option [SINGLE
   `);
   assert.equal(this.$('.t-single .ember-power-select-trigger').text().trim(), 'one', 'Value has been selected');
   clickTrigger();
-  assert.equal($('.ember-power-select-option').length, 3);
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav]').length, 1);
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav--done]').text(), singleButtonText);
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav--title]').text(), ''); // no title shows up b/c search input takes over
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav--search-input]').attr('placeholder'), singleLabelText);
+  assert.equal(Ember.$('.ember-power-select-option').length, 3);
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav]').length, 1);
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav--done]').text(), singleButtonText);
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav--title]').text(), ''); // no title shows up b/c search input takes over
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav--search-input]').attr('placeholder'), singleLabelText);
   nativeMouseUp('.ember-power-select-option:eq(1)');
-  assert.equal($('.t-single .ember-power-select-trigger').text().trim(), 'two', 'Value has been selected');
-  assert.equal($('.ember-power-select-options').length, 0, 'Select closed');
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav]').length, 0);
-  assert.equal($('.power-select-mobile__dropdown').length, 0, 'Selection closes power select dropdown');
+  assert.equal(Ember.$('.t-single .ember-power-select-trigger').text().trim(), 'two', 'Value has been selected');
+  assert.equal(Ember.$('.ember-power-select-options').length, 0, 'Select closed');
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav]').length, 0);
+  assert.equal(Ember.$('.power-select-mobile__dropdown').length, 0, 'Selection closes power select dropdown');
 });
 
 test('can click done to close nav and close power select after selecting a number [SINGLE SEARCH]', function(assert) {
@@ -189,15 +190,15 @@ test('can click done to close nav and close power select after selecting a numbe
     {{/power-select-mobile}}
   `);
   assert.equal(this.$('.t-single .ember-power-select-trigger').text().trim(), 'one', 'Value has been selected');
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav]').length, 0);
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav]').length, 0);
   clickTrigger();
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav]').length, 1);
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav]').length, 1);
   nativeMouseUp('.ember-power-select-option:eq(0)');
-  assert.equal($('.power-select-mobile__dropdown').length, 0, 'Selection closes power select dropdown');
+  assert.equal(Ember.$('.power-select-mobile__dropdown').length, 0, 'Selection closes power select dropdown');
   // click done after selecting a number
-  $('[data-test-id=ember-power-select-mobile-nav--done]').click();
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav]').length, 0, 'done closes the nav after select');
-  assert.equal($('.power-select-mobile__dropdown').length, 0, 'done closes power select after select');
+  Ember.$('[data-test-id=ember-power-select-mobile-nav--done]').click();
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav]').length, 0, 'done closes the nav after select');
+  assert.equal(Ember.$('.power-select-mobile__dropdown').length, 0, 'done closes power select after select');
 });
 
 test('can click done to close nav and close power select when not selecting a number [SINGLE SEARCH]', function(assert) {
@@ -218,13 +219,13 @@ test('can click done to close nav and close power select when not selecting a nu
     {{/power-select-mobile}}
   `);
   assert.equal(this.$('.t-single .ember-power-select-trigger').text().trim(), 'one', 'Value has been selected');
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav]').length, 0);
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav]').length, 0);
   clickTrigger();
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav]').length, 1);
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav]').length, 1);
   // click done w/o selecting a number
-  $('[data-test-id=ember-power-select-mobile-nav--done]').click();
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav]').length, 0, 'done closes the nav');
-  assert.equal($('.power-select-mobile__dropdown').length, 0, 'done closes power select');
+  Ember.$('[data-test-id=ember-power-select-mobile-nav--done]').click();
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav]').length, 0, 'done closes the nav');
+  assert.equal(Ember.$('.power-select-mobile__dropdown').length, 0, 'done closes power select');
 });
 
 test('can use custom action [SINGLE SEARCH]', function(assert) {
@@ -250,16 +251,16 @@ test('can use custom action [SINGLE SEARCH]', function(assert) {
   `);
   assert.equal(this.$('.t-single .ember-power-select-trigger').text().trim(), 'one', 'Value has been selected');
   clickTrigger();
-  assert.equal($('.ember-power-select-option').length, 3);
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav]').length, 1);
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav--done]').text(), singleButtonText);
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav--title]').text(), '');
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav--search-input]').attr('placeholder'), singleLabelText);
+  assert.equal(Ember.$('.ember-power-select-option').length, 3);
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav]').length, 1);
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav--done]').text(), singleButtonText);
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav--title]').text(), '');
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav--search-input]').attr('placeholder'), singleLabelText);
   nativeMouseUp('.ember-power-select-option:eq(1)');
-  assert.equal($('.t-single .ember-power-select-trigger').text().trim(), 'custom', 'Value has been selected');
-  assert.equal($('.ember-power-select-options').length, 0, 'Select closed');
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav]').length, 0);
-  assert.equal($('.power-select-mobile__dropdown').length, 0, 'Selection closes power select dropdown');
+  assert.equal(Ember.$('.t-single .ember-power-select-trigger').text().trim(), 'custom', 'Value has been selected');
+  assert.equal(Ember.$('.ember-power-select-options').length, 0, 'Select closed');
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav]').length, 0);
+  assert.equal(Ember.$('.power-select-mobile__dropdown').length, 0, 'Selection closes power select dropdown');
 });
 
 
@@ -286,22 +287,22 @@ test('it renders the multiple select power-select component with nav and can sel
   `);
   assert.equal(this.$('.t-multiple .ember-power-select-trigger').text().trim().replace(/[\s\n\W]+/, ''), 'one', 'Value has been selected');
   clickTrigger();
-  assert.equal($('.power-select-mobile__dropdown').length, 1, 'Dropdown present on open');
-  assert.equal($('.ember-power-select-option').length, 3);
-  assert.equal($('.t-multiple .ember-power-select-trigger').text().trim().replace(/[\s\n\W]+/g, ''), 'one', 'Values has been selected');
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav]').length, 1);
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav--done]').text(), singleButtonText);
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav--title]').text(), singleLabelText);
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav--count]').text(), '1');
+  assert.equal(Ember.$('.power-select-mobile__dropdown').length, 1, 'Dropdown present on open');
+  assert.equal(Ember.$('.ember-power-select-option').length, 3);
+  assert.equal(Ember.$('.t-multiple .ember-power-select-trigger').text().trim().replace(/[\s\n\W]+/g, ''), 'one', 'Values has been selected');
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav]').length, 1);
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav--done]').text(), singleButtonText);
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav--title]').text(), singleLabelText);
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav--count]').text(), '1');
   nativeMouseUp('.ember-power-select-option:eq(1)');
-  assert.equal($('.power-select-mobile__dropdown').length, 1, 'Dropdown still present after selection');
-  assert.equal($('.ember-power-select-option').length, 3);
-  assert.equal($('.t-multiple .ember-power-select-trigger').text().trim().replace(/[\s\n\W]+/g, ''), 'onetwo', 'Values has been selected');
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav]').length, 1);
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav]').length, 1);
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav--done]').text(), singleButtonText);
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav--title]').text(), singleLabelText);
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav--count]').text(), '2');
+  assert.equal(Ember.$('.power-select-mobile__dropdown').length, 1, 'Dropdown still present after selection');
+  assert.equal(Ember.$('.ember-power-select-option').length, 3);
+  assert.equal(Ember.$('.t-multiple .ember-power-select-trigger').text().trim().replace(/[\s\n\W]+/g, ''), 'onetwo', 'Values has been selected');
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav]').length, 1);
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav]').length, 1);
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav--done]').text(), singleButtonText);
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav--title]').text(), singleLabelText);
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav--count]').text(), '2');
 });
 
 test('can click done to close nav and close power select after selecting a number', function(assert) {
@@ -324,17 +325,17 @@ test('can click done to close nav and close power select after selecting a numbe
     {{/power-select-mobile}}
   `);
   assert.equal(this.$('.t-multiple .ember-power-select-trigger').text().trim().replace(/[\s\n]+/, '').slice(1), 'one', 'Value has been selected');
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav]').length, 0);
-  assert.equal($('.ember-power-select-dropdown').length, 0, 'done closes power select after select');
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav]').length, 0);
+  assert.equal(Ember.$('.ember-power-select-dropdown').length, 0, 'done closes power select after select');
   clickTrigger();
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav]').length, 1);
-  assert.equal($('.ember-power-select-dropdown').length, 1, 'done closes power select after select');
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav]').length, 1);
+  assert.equal(Ember.$('.ember-power-select-dropdown').length, 1, 'done closes power select after select');
   nativeMouseUp('.ember-power-select-option:eq(1)');
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav]').length, 1);
-  assert.equal($('.ember-power-select-dropdown').length, 1, 'done closes power select after select');
-  $('[data-test-id=ember-power-select-mobile-nav--done]').click();
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav]').length, 0, 'done closes the nav after select');
-  assert.equal($('.ember-power-select-dropdown').length, 0, 'done closes power select after select');
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav]').length, 1);
+  assert.equal(Ember.$('.ember-power-select-dropdown').length, 1, 'done closes power select after select');
+  Ember.$('[data-test-id=ember-power-select-mobile-nav--done]').click();
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav]').length, 0, 'done closes the nav after select');
+  assert.equal(Ember.$('.ember-power-select-dropdown').length, 0, 'done closes power select after select');
 });
 
 test('can click done to close nav and close power select when not selecting a number', function(assert) {
@@ -356,11 +357,11 @@ test('can click done to close nav and close power select when not selecting a nu
     {{/power-select-mobile}}
   `);
   assert.equal(this.$('.t-multiple .ember-power-select-trigger').text().trim().replace(/[\s\n]+/, ''), 'one', 'Value has been selected');
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav]').length, 0);
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav]').length, 0);
   clickTrigger();
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav]').length, 1);
-  $('[data-test-id=ember-power-select-mobile-nav--done]').click();
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav]').length, 0, 'done closes the nav');
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav]').length, 1);
+  Ember.$('[data-test-id=ember-power-select-mobile-nav--done]').click();
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav]').length, 0, 'done closes the nav');
 });
 
 
@@ -386,22 +387,22 @@ test('it renders the multiple select power-select component with nav and can sel
   `);
   assert.equal(this.$('.t-multiple .ember-power-select-trigger').text().trim().replace(/[\s\n\W]+/, ''), 'one', 'Value has been selected');
   clickTrigger();
-  assert.equal($('.power-select-mobile__dropdown').length, 1, 'Dropdown present on open');
-  assert.equal($('.ember-power-select-option').length, 3);
-  assert.equal($('.t-multiple .ember-power-select-trigger').text().trim().replace(/[\s\n\W]+/g, ''), 'one', 'Values has been selected');
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav]').length, 1);
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav--done]').text(), singleButtonText);
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav--title]').text(), '');
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav--count]').text(), '1');
+  assert.equal(Ember.$('.power-select-mobile__dropdown').length, 1, 'Dropdown present on open');
+  assert.equal(Ember.$('.ember-power-select-option').length, 3);
+  assert.equal(Ember.$('.t-multiple .ember-power-select-trigger').text().trim().replace(/[\s\n\W]+/g, ''), 'one', 'Values has been selected');
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav]').length, 1);
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav--done]').text(), singleButtonText);
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav--title]').text(), '');
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav--count]').text(), '1');
   nativeMouseUp('.ember-power-select-option:eq(1)');
-  assert.equal($('.power-select-mobile__dropdown').length, 1, 'Dropdown still present after selection');
-  assert.equal($('.ember-power-select-option').length, 3);
-  assert.equal($('.t-multiple .ember-power-select-trigger').text().trim().replace(/[\s\n\W]+/g, ''), 'onetwo', 'Values has been selected');
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav]').length, 1);
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav]').length, 1);
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav--done]').text(), singleButtonText);
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav--title]').text(), '');
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav--count]').text(), '2');
+  assert.equal(Ember.$('.power-select-mobile__dropdown').length, 1, 'Dropdown still present after selection');
+  assert.equal(Ember.$('.ember-power-select-option').length, 3);
+  assert.equal(Ember.$('.t-multiple .ember-power-select-trigger').text().trim().replace(/[\s\n\W]+/g, ''), 'onetwo', 'Values has been selected');
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav]').length, 1);
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav]').length, 1);
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav--done]').text(), singleButtonText);
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav--title]').text(), '');
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav--count]').text(), '2');
 });
 
 test('can click done to close nav and close power select after selecting a number', function(assert) {
@@ -423,17 +424,17 @@ test('can click done to close nav and close power select after selecting a numbe
     {{/power-select-mobile}}
   `);
   assert.equal(this.$('.t-multiple .ember-power-select-trigger').text().trim().replace(/[\s\n]+/, '').slice(1), 'one', 'Value has been selected');
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav]').length, 0);
-  assert.equal($('.ember-power-select-dropdown').length, 0, 'done closes power select after select');
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav]').length, 0);
+  assert.equal(Ember.$('.ember-power-select-dropdown').length, 0, 'done closes power select after select');
   clickTrigger();
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav]').length, 1);
-  assert.equal($('.ember-power-select-dropdown').length, 1, 'done closes power select after select');
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav]').length, 1);
+  assert.equal(Ember.$('.ember-power-select-dropdown').length, 1, 'done closes power select after select');
   nativeMouseUp('.ember-power-select-option:eq(1)');
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav]').length, 1);
-  assert.equal($('.ember-power-select-dropdown').length, 1, 'done closes power select after select');
-  $('[data-test-id=ember-power-select-mobile-nav--done]').click();
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav]').length, 0, 'done closes the nav after select');
-  assert.equal($('.ember-power-select-dropdown').length, 0, 'done closes power select after select');
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav]').length, 1);
+  assert.equal(Ember.$('.ember-power-select-dropdown').length, 1, 'done closes power select after select');
+  Ember.$('[data-test-id=ember-power-select-mobile-nav--done]').click();
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav]').length, 0, 'done closes the nav after select');
+  assert.equal(Ember.$('.ember-power-select-dropdown').length, 0, 'done closes power select after select');
 });
 
 test('can click done to close nav and close power select when not selecting a number', function(assert) {
@@ -454,9 +455,9 @@ test('can click done to close nav and close power select when not selecting a nu
     {{/power-select-mobile}}
   `);
   assert.equal(this.$('.t-multiple .ember-power-select-trigger').text().trim().replace(/[\s\n]+/, ''), 'one', 'Value has been selected');
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav]').length, 0);
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav]').length, 0);
   clickTrigger();
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav]').length, 1);
-  $('[data-test-id=ember-power-select-mobile-nav--done]').click();
-  assert.equal($('[data-test-id=ember-power-select-mobile-nav]').length, 0, 'done closes the nav');
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav]').length, 1);
+  Ember.$('[data-test-id=ember-power-select-mobile-nav--done]').click();
+  assert.equal(Ember.$('[data-test-id=ember-power-select-mobile-nav]').length, 0, 'done closes the nav');
 });
