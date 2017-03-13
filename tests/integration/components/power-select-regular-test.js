@@ -1,7 +1,8 @@
 import Ember from 'ember';
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
-import { clickTrigger, nativeMouseUp } from '../../helpers/ember-power-select';
+import { clickTrigger } from '../../helpers/ember-power-select';
+import { click, findAll } from 'ember-native-dom-helpers/test-support/helpers';
 
 const singleLabelText = 'Single';
 const singleButtonText = 'Done1';
@@ -34,8 +35,9 @@ test('single select power-select component works w/o mobile', function(assert) {
   assert.equal(this.$('.ember-power-select-trigger .ember-power-select-selected-item').text().trim(), 'one', 'Value has been selected');
   clickTrigger();
   assert.throws(Ember.$('.ember-power-select-search-input'));
-  assert.equal(Ember.$('.ember-power-select-option').length, 3);
-  nativeMouseUp('.ember-power-select-option:eq(1)');
+  const options = findAll('.ember-power-select-option');
+  assert.equal(options.length, 3);
+  click(options[1]);
   assert.equal(Ember.$('.ember-power-select-trigger .ember-power-select-selected-item').text().trim(), 'two', 'Value has been selected');
 });
 
@@ -60,8 +62,9 @@ test('single select power-select w/ search works w/o mobile', function(assert) {
   assert.equal(this.$('.ember-power-select-trigger .ember-power-select-selected-item').text().trim(), 'one', 'Value has been selected');
   clickTrigger();
   assert.ok(Ember.$('.ember-power-select-search-input'));
-  assert.equal(Ember.$('.ember-power-select-option').length, 3);
-  nativeMouseUp('.ember-power-select-option:eq(1)');
+  const options = findAll('.ember-power-select-option');
+  assert.equal(options.length, 3);
+  click(options[1]);
   assert.equal(Ember.$('.ember-power-select-trigger .ember-power-select-selected-item').text().trim(), 'two', 'Value has been selected');
 });
 
@@ -85,8 +88,9 @@ test('it renders the multiple select power-select component with nav and can sel
   `);
   assert.equal(this.$('.t-multiple .ember-power-select-multiple-option').text().trim().replace(/[\s\n\W]+/, ''), 'one', 'Value has been selected');
   clickTrigger();
-  assert.equal(Ember.$('.ember-power-select-option').length, 3);
-  nativeMouseUp('.ember-power-select-option:eq(1)');
+  const options = findAll('.ember-power-select-option');
+  assert.equal(options.length, 3);
+  click(options[1]);
   assert.equal(Ember.$('.t-multiple .ember-power-select-multiple-option').text().trim().replace(/[\s\n\W]+/g, ''), 'onetwo', 'Values has been selected');
 });
 
@@ -109,7 +113,8 @@ test('it renders the multiple select power-select component with nav and can sel
   `);
   assert.equal(this.$('.t-multiple .ember-power-select-multiple-option').text().trim().replace(/[\s\n\W]+/, ''), 'one', 'Value has been selected');
   clickTrigger();
-  assert.equal(Ember.$('.ember-power-select-option').length, 3);
-  nativeMouseUp('.ember-power-select-option:eq(1)');
+  const options = findAll('.ember-power-select-option');
+  assert.equal(options.length, 3);
+  click(options[1]);
   assert.equal(Ember.$('.t-multiple .ember-power-select-multiple-option').text().trim().replace(/[\s\n\W]+/g, ''), 'onetwo', 'Values has been selected');
 });
