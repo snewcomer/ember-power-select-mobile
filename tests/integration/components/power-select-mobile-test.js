@@ -2,7 +2,7 @@ import Ember from 'ember';
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 import { clickTrigger } from '../../helpers/ember-power-select';
-import { click, findAll, find } from 'ember-native-dom-helpers/test-support/helpers';
+import { click, findAll, find } from 'ember-native-dom-helpers';
 
 const singleLabelText = 'Single';
 const singleButtonText = 'Done1';
