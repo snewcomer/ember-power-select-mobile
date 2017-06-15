@@ -37,7 +37,7 @@
     "ember-disable-prototype-extensions": "^1.1.0",
     "ember-export-application-global": "^2.0.0",
     "ember-load-initializers": "^1.0.0",
-    "ember-power-select": "^1.7.1",
+    "ember-power-select": "^1.8.5",
     "ember-resolver": "^4.0.0",
     "ember-source": "~2.13.0",
     "loader.js": "^4.2.3"
