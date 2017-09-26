@@ -1,6 +1,6 @@
 import Ember from 'ember';
 import layout from '../templates/components/mobile-before-options';
-import { scheduleOnce } from 'ember-runloop';
+import { scheduleOnce } from '@ember/runloop';
 import isIos from '../utils/is-ios';
 
 /**
